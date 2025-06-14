@@ -8,8 +8,8 @@ Variables   locator.py
     Mở trang web
     # Điền thông tin đăng nhập
     # Ấn nút đăng nhập
-    # Chọn danh mục sản phẩm 
-    # Xem chi tiết sản phẩm
+    Chọn danh mục sản phẩm 
+    Xem chi tiết sản phẩm
     Xem giỏ hàng
-    # Tiến hành thanh toán
+    Tiến hành thanh toán
 *** Keywords ***
