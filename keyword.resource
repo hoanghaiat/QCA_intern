@@ -1,55 +1,50 @@
 *** Settings ***
-Library   SeleniumLibrary
-Variables   locator.py
+Library    SeleniumLibrary
+Variables  locator.py
 
 *** Variables ***
-${test}  A
+${Browser}    chrome
+${url}        https://lamthaocosmetics.vn/
 
 *** Keywords ***
-Mở trang web
-    Open Browser  https://lamthaocosmetics.vn/  Edge
-Điền thông tin đăng nhập
-    Click Element    ${account_icon}
-    Wait Until Element Is Visible    //input[@id="login-customer[email]"]    timeout=10s
-    Input Text    //input[@id="login-customer[email]"]    0362631552
-    Input Text    //input[@id="login-customer[password]"]    Tuyet2003
-    Press Key    //input[@id="login-customer[password]"]    ENTER
-Ấn nút Đăng nhập
-    Click Button    //button[@id="form_submit-login"]   
-    Wait Until Page Contains Element    //div[@class="header-wrap-logo"]   timeout=10s
-    Go To    https://lamthaocosmetics.vn/    # ve trang chu
-
-Chọn danh mục sản phẩm   #ok  Choose product category 
-    Wait Until Page Contains Element    //nav    timeout=10s
+Mở Trang web
+    Open Browser    ${url}    ${Browser}
+    Maximize Browser Window
+    Đóng Popup Nếu Có
     Sleep    2s
-    Click Element     //div[contains(@class, 'danhmucsanpham')]
-    Wait Until Page Contains Element    //div[contains(@class, 'danhmucsanpham')]/div[2]/ul[1]    timeout=5s
-    Click Element    //div[contains(@class, 'danhmucsanpham')]/div[2]/ul[1]/li[1]/a
-Xem chi tiết sản phẩm
-    Click Element    //div[contains(@class, 'product-loop')]        #click sp
-    Click Element    //label[normalize-space(text())='1 Hộp (10 Miếng)']        #chọn kích thước
-    Input Text    //input[@class="quantitynum"]    2                #nhap sl
-    Click Element    //div[contains(@class, 'cuccongtrusoboxgrid1 controplus ')]     #giam sl
-    Click Element    //div[contains(@class, 'cuccongtrusoboxgrid3 controplus ')]       #tang sl
-     #them gio 
-    Click Element    //div[@class='gridoftemplateaction2']         
-    # Click Element    //div[@class="gridoftemplateaction3"]            #mua ngay
-Xem giỏ hàng
-    Click Element    //a[@id="site-cart-handle"]
-    Input Text    //input[@class="quantitynum"]    2                #nhap sl
-    Click Button    //div[contains(@class, 'cuccongtrusoboxgrid1 controplus ')]       #giam sl
-    Click Button    //div[contains(@class, 'cuccongtrusoboxgrid3 controplus ')]     #tang sl
-    Input Text    //textarea[@id="notecart"]    note: abc
-    Click Element    //div[@class="thantoannga"]                     # thanh toán ngay
 
-Tiến hành thanh toán
-    Input Text     //input[@id="billing_address_full_name"]  Nguyễn Quỳnh Anh
-    Input Text     //input[@id="checkout_user_email"]  anh32@gmail.com
-    Input Text     //input[@id="billing_address_phone"]  09872221121
-    Input Text    //input[@id="billing_address_address1"]    109 Lê Duẩn
-    Click Element    //select[@id="customer_shipping_province"]/option[3]  
-    Click Element    //select[@id="customer_shipping_district"]/option[1]
-    Click Element     //select[@id="customer_shipping_ward"]/option[2]
-    Input Text     //input[@class="field-input"]    GIAM20
-    Click Element    //div[@class="content-box"]/div[1]/label/div[1]/input   #Chọn phương thức
-    Click Button    //button[@class="step-footer-continue-btn btn"]            #Hoàn tất
+Chọn Sản Phẩm Mới
+    Wait Until Element Is Visible    ${SAN_PHAM_MOI}    15s
+    Click Element    ${SAN_PHAM_MOI}
+    Sleep    3s
+
+Chọn Sản Phẩm Và Mua Ngay
+    Wait Until Page Contains Element    ${BUTTON_MUA_NGAY}    15s
+    Scroll Element Into View            ${BUTTON_MUA_NGAY}
+    Sleep                               1s
+    Wait Until Element Is Visible       ${BUTTON_MUA_NGAY}    10s
+    Click Element                       ${BUTTON_MUA_NGAY}
+
+Điền Thông Tin Mua Hàng
+    Wait Until Element Is Visible    ${TEN_KHACH_HANG}    15s
+    Input Text    ${TEN_KHACH_HANG}      H Loet eban
+    Input Text    ${EMAIL}               na9854@gmail.com
+    Input Text    ${SDT}                 0901234567
+    Input Text    ${DIA_CHI}             k502/h33/24a
+
+    Wait Until Element Is Visible    ${SELECT_TINH_THANH}    15s
+    Select From List By Label        ${SELECT_TINH_THANH}    TP. Đà Nẵng
+
+    Wait Until Element Is Visible    ${SELECT_QUAN_HUYEN}    15s
+    Select From List By Label        ${SELECT_QUAN_HUYEN}    Hải Châu
+
+    Wait Until Element Is Visible    ${SELECT_PHUONG_XA}    15s
+    Select From List By Label        ${SELECT_PHUONG_XA}     Hòa Cường Nam
+
+    Wait Until Element Is Visible    ${BUTTON_TIEP_TUC_THANH_TOAN}    10s
+    Click Element    ${BUTTON_TIEP_TUC_THANH_TOAN}
+    Sleep    5s
+
+Đóng Popup Nếu Có
+    ${popup_exists}=    Run Keyword And Return Status    Element Should Be Visible    ${POPUP_CLOSE_BUTTON}    5s
+    Run Keyword If    ${popup_exists}    Click Element    ${POPUP_CLOSE_BUTTON}
