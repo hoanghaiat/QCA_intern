@@ -1,6 +1,11 @@
 *** Settings ***
 Library   SeleniumLibrary
 Variables   locator.py
+# Suite Setup  Mở trang web
+# Test Setup  Điền thông tin đăng nhập
+# Test Teardown Log out tài khoản  quay lại tranhg chủ
+# Suite Teardown Đóng trang web   đóng trình duyệt 
+
 
 *** Variables ***
 ${test}  A
@@ -42,13 +47,17 @@ Tiến hành thanh toán
     Wait Until Element Is Visible    //input[@id="billing_address_full_name"]    timeout=10s
     Input Text     //input[@id="billing_address_full_name"]  Nguyễn Quỳnh Anh
     Input Text     //input[@id="checkout_user_email"]  anh32@gmail.com
-    Input Text     //input[@id="billing_address_phone"]  09872221121
+    Input Text     //input[@id="billing_address_phone"]   0362631552
     Input Text    //input[@id="billing_address_address1"]    109 Lê Duẩn
 
     Select From List By Label    //select[@id="customer_shipping_province"]     Hà Nội
+    Wait Until Element Contains    //select[@id="customer_shipping_district"]    Quận Hoàn Kiếm    timeout=15s
     Select From List By Label    //select[@id="customer_shipping_district"]    Quận Hoàn Kiếm
+    Wait Until Element Contains    //select[@id="customer_shipping_ward"]    Phường Chương Dương    timeout=15s
     Select From List By Label     //select[@id="customer_shipping_ward"]    Phường Chương Dương
   
-    Click Element    //form[@id="form_next_step"]/button        #tiếp tục tt
-    Click Element    //div[@class="content-box"]/div[1]/label/div[1]/input   #Chọn phương thức
-    Click Button    //button[@class="step-footer-continue-btn btn"]            #Hoàn tất
+    Wait Until Element Is Enabled    //div[@id="step-footer-checkout"]//following::button    timeout=10s
+    Click Element    //div[@id="step-footer-checkout"]//following::button         #tiếp tục tt
+    # Click Element    //div[@class="content-box"]/div[1]/label/div[1]/input   #Chọn phương thức
+    Wait Until Page Contains Element    //button[@data-event-added="attached"]    timeout=15s
+    Click Button    //button[@data-event-added="attached"]            #Hoàn tất
