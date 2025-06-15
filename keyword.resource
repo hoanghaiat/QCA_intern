@@ -1,55 +1,58 @@
 *** Settings ***
-Library   SeleniumLibrary
-Variables   locator.py
+Library    SeleniumLibrary
+Variables    locator.py
 
 *** Variables ***
-${test}  A
+${Browser}    edge  
+${url}    https://lamthaocosmetics.vn/
 
+${fullname}     Nguyễn Kim Hoàng Đức
+${email}        ducnguyen@gmail.com
+${phone}        0323456789
+${address}      16 Trần Kế Xương, Hải Châu, Đà Nẵng
 *** Keywords ***
-Mở trang web
-    Open Browser  https://lamthaocosmetics.vn/  Edge
-Điền thông tin đăng nhập
-    Click Element    ${account_icon}
-    Wait Until Element Is Visible    //input[@id="login-customer[email]"]    timeout=10s
-    Input Text    //input[@id="login-customer[email]"]    0362631552
-    Input Text    //input[@id="login-customer[password]"]    Tuyet2003
-    Press Key    //input[@id="login-customer[password]"]    ENTER
-Ấn nút Đăng nhập
-    Click Button    //button[@id="form_submit-login"]   
-    Wait Until Page Contains Element    //div[@class="header-wrap-logo"]   timeout=10s
-    Go To    https://lamthaocosmetics.vn/    # ve trang chu
+Open Home Page
+    Open Browser    ${url}    ${Browser}
+    Maximize Browser Window
+Open Product Category
+    Click Element    ${product_category}    
+Choose Pharmaceutical
+    Click Element    ${pharmaceutical_cosmetics}
+Add To Cart
+    Mouse Over       ${product}
+    Click Element    ${add_to_cart}
+Shopping Cart
+    Click Element    ${shopping_cart}
+Add Quantity
+    Wait Until Element Is Visible    ${add_quantity}    timeout=5s
+    Click Element    ${add_quantity} 
+    Click Element    ${add_quantity}
+Checkout
+    Click Element    ${checkout_button}
+Fill In Information
+    [Arguments]    ${fullname}    ${email}    ${phone}    ${address}
+    Input Text    ${input_fullname}    ${fullname}
+    Input Text    ${input_email}    ${email}
+    Input Text    ${input_phone}    ${phone}
+    Input Text    ${input_address}    ${address}
 
-Chọn danh mục sản phẩm   #ok  Choose product category 
-    Wait Until Page Contains Element    //nav    timeout=10s
-    Sleep    2s
-    Click Element     //div[contains(@class, 'danhmucsanpham')]
-    Wait Until Page Contains Element    //div[contains(@class, 'danhmucsanpham')]/div[2]/ul[1]    timeout=5s
-    Click Element    //div[contains(@class, 'danhmucsanpham')]/div[2]/ul[1]/li[1]/a
-Xem chi tiết sản phẩm
-    Click Element    //div[contains(@class, 'product-loop')]        #click sp
-    Click Element    //label[normalize-space(text())='1 Hộp (10 Miếng)']        #chọn kích thước
-    Input Text    //input[@class="quantitynum"]    2                #nhap sl
-    Click Element    //div[contains(@class, 'cuccongtrusoboxgrid1 controplus ')]     #giam sl
-    Click Element    //div[contains(@class, 'cuccongtrusoboxgrid3 controplus ')]       #tang sl
-     #them gio 
-    Click Element    //div[@class='gridoftemplateaction2']         
-    # Click Element    //div[@class="gridoftemplateaction3"]            #mua ngay
-Xem giỏ hàng
-    Click Element    //a[@id="site-cart-handle"]
-    Input Text    //input[@class="quantitynum"]    2                #nhap sl
-    Click Button    //div[contains(@class, 'cuccongtrusoboxgrid1 controplus ')]       #giam sl
-    Click Button    //div[contains(@class, 'cuccongtrusoboxgrid3 controplus ')]     #tang sl
-    Input Text    //textarea[@id="notecart"]    note: abc
-    Click Element    //div[@class="thantoannga"]                     # thanh toán ngay
+    Click Element    ${select_province}
+    Sleep    3s
+    Click Element    ${select_district}
+    Sleep    3s
+    Click Element    ${select_ward}
 
-Tiến hành thanh toán
-    Input Text     //input[@id="billing_address_full_name"]  Nguyễn Quỳnh Anh
-    Input Text     //input[@id="checkout_user_email"]  anh32@gmail.com
-    Input Text     //input[@id="billing_address_phone"]  09872221121
-    Input Text    //input[@id="billing_address_address1"]    109 Lê Duẩn
-    Click Element    //select[@id="customer_shipping_province"]/option[3]  
-    Click Element    //select[@id="customer_shipping_district"]/option[1]
-    Click Element     //select[@id="customer_shipping_ward"]/option[2]
-    Input Text     //input[@class="field-input"]    GIAM20
-    Click Element    //div[@class="content-box"]/div[1]/label/div[1]/input   #Chọn phương thức
-    Click Button    //button[@class="step-footer-continue-btn btn"]            #Hoàn tất
+Next
+    Click Element    ${next_button}
+Close All Browsers Custom
+    Close All Browsers
+
+
+
+
+
+
+
+
+
+
