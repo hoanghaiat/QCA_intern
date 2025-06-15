@@ -1,15 +1,13 @@
 *** Settings ***
-Library   SeleniumLibrary
+Library    SeleniumLibrary
 Resource    keyword.resource
-Variables   locator.py
+Variables    locator.py
 
+*** Variables ***   
+${test}    A
 *** Test Cases ***
-Đăng nhập tài khoản
-    Mở trang web
-    # Điền thông tin đăng nhập
-    # Ấn nút đăng nhập
-    # Chọn danh mục sản phẩm 
-    # Xem chi tiết sản phẩm
-    Xem giỏ hàng
-    # Tiến hành thanh toán
-*** Keywords ***
+    Mở Trang web    
+    chọn vào một sản phẩm bất kì
+    kích vào mua ngay
+    điền thông tin
+    kích vào tiếp tục đến phương thức thanh toán
