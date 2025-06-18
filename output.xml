@@ -1,164 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3 (Python 3.10.9 on win32)" generated="2025-06-12T11:08:32.291388" rpa="false" schemaversion="5">
-<suite id="s1" name="Test" source="D:\robot-tests\test.robot">
-<test id="s1-t1" name="Verify Checkout Functionality" line="17">
+<robot generator="Robot 7.3 (Python 3.10.9 on win32)" generated="2025-06-18T19:00:58.645066" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="D:\Git\QCA_intern\test.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-06-18T19:00:58.913959" level="INFO">Opening browser 'Chrome' to base url 'https://lamthaocosmetics.vn/cart'.</msg>
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-18T19:00:58.912956" elapsed="7.758325"/>
+</kw>
+<test id="s1-t1" name="Verify Checkout Functionality" line="22">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary" type="SETUP">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-18T19:01:06.672667" elapsed="0.100666"/>
+</kw>
 <kw name="Open Home Page" owner="keyword">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-06-12T11:08:33.192153" level="INFO">Opening browser 'chrome' to base url 'https://lamthaocosmetics.vn/cart'.</msg>
+<msg time="2025-06-18T19:01:06.778418" level="INFO">Opening browser 'chrome' to base url 'https://lamthaocosmetics.vn/cart'.</msg>
 <arg>${url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-06-12T11:08:33.191153" elapsed="14.520669"/>
+<status status="PASS" start="2025-06-18T19:01:06.777340" elapsed="7.831405"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-06-12T11:08:47.711822" elapsed="0.160307"/>
+<status status="PASS" start="2025-06-18T19:01:14.608745" elapsed="0.139293"/>
 </kw>
-<status status="PASS" start="2025-06-12T11:08:33.189153" elapsed="14.682976"/>
+<doc>Mở trình duyệt và truy cập trang chủ</doc>
+<status status="PASS" start="2025-06-18T19:01:06.775337" elapsed="7.972701"/>
 </kw>
-<kw name="Open Product Catalog" owner="keyword">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-12T11:08:47.878129" level="INFO">Clicking element 'xpath=//div[@class='danhmucsanpham']'.</msg>
+<kw name="Menu" owner="keyword">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=${product_category}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-06-12T11:08:47.876130" elapsed="0.313994"/>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-18T19:01:14.750038" elapsed="0.208184"/>
 </kw>
-<status status="PASS" start="2025-06-12T11:08:47.875130" elapsed="0.314994"/>
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-06-18T19:01:14.959221" level="INFO">Simulating Mouse Over on element 'xpath=//nav[@class='navbar-mainmenu']//div[@class='danhmucsanpham']'.</msg>
+<arg>xpath=${product_category}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="PASS" start="2025-06-18T19:01:14.959221" elapsed="0.334520"/>
 </kw>
-<kw name="Choose Beauty Accessories" owner="keyword">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-06-12T11:08:48.192125" level="INFO">Clicking element 'xpath=//a[contains(@href, 'phu-kien-lam-dep')]'.</msg>
-<msg time="2025-06-12T11:08:48.625839" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-06-12T11:08:48.626346" level="FAIL">ElementNotInteractableException: Message: element not interactable
-  (Session info: chrome=137.0.7151.70)
-Stacktrace:
-	GetHandleVerifier [0x0x7e3763+63299]
-	GetHandleVerifier [0x0x7e37a4+63364]
-	(No symbol) [0x0x610f70]
-	(No symbol) [0x0x65aa2b]
-	(No symbol) [0x0x64f445]
-	(No symbol) [0x0x67e57c]
-	(No symbol) [0x0x64eed4]
-	(No symbol) [0x0x67e7f4]
-	(No symbol) [0x0x69fa4a]
-	(No symbol) [0x0x67e376]
-	(No symbol) [0x0x64d6e0]
-	(No symbol) [0x0x64e544]
-	GetHandleVerifier [0x0xa3e033+2531347]
-	GetHandleVerifier [0x0xa39332+2511634]
-	GetHandleVerifier [0x0x809eda+220858]
-	GetHandleVerifier [0x0x7fa528+156936]
-	GetHandleVerifier [0x0x800c5d+183357]
-	GetHandleVerifier [0x0x7eb6c8+95912]
-	GetHandleVerifier [0x0x7eb870+96336]
-	GetHandleVerifier [0x0x7d664a+9770]
-	BaseThreadInitThunk [0x0x75577ba9+25]
-	RtlInitializeExceptionChain [0x0x771ec2eb+107]
-	RtlClearBits [0x0x771ec26f+191]
-</msg>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-06-18T19:01:45.808264" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-35.png"&gt;&lt;img src="selenium-screenshot-35.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-06-18T19:01:45.809264" level="FAIL">Element 'xpath=//a[contains(@href, 'phu-kien-lam-dep')]' not visible after 30 seconds.</msg>
 <arg>xpath=${beauty_accessories}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-06-18T19:01:15.293741" elapsed="30.525217">Element 'xpath=//a[contains(@href, 'phu-kien-lam-dep')]' not visible after 30 seconds.</status>
+</kw>
+<kw name="Mouse Over" owner="SeleniumLibrary">
+<arg>xpath=${beauty_accessories}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<status status="NOT RUN" start="2025-06-18T19:01:45.818958" elapsed="0.001351"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=${type_product}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-06-18T19:01:45.820309" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=${type_product}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-06-12T11:08:48.192125" elapsed="0.745609">ElementNotInteractableException: Message: element not interactable
-  (Session info: chrome=137.0.7151.70)
-Stacktrace:
-	GetHandleVerifier [0x0x7e3763+63299]
-	GetHandleVerifier [0x0x7e37a4+63364]
-	(No symbol) [0x0x610f70]
-	(No symbol) [0x0x65aa2b]
-	(No symbol) [0x0x64f445]
-	(No symbol) [0x0x67e57c]
-	(No symbol) [0x0x64eed4]
-	(No symbol) [0x0x67e7f4]
-	(No symbol) [0x0x69fa4a]
-	(No symbol) [0x0x67e376]
-	(No symbol) [0x0x64d6e0]
-	(No symbol) [0x0x64e544]
-	GetHandleVerifier [0x0xa3e033+2531347]
-	GetHandleVerifier [0x0xa39332+2511634]
-	GetHandleVerifier [0x0x809eda+220858]
-	GetHandleVerifier [0x0x7fa528+156936]
-	GetHandleVerifier [0x0x800c5d+183357]
-	GetHandleVerifier [0x0x7eb6c8+95912]
-	GetHandleVerifier [0x0x7eb870+96336]
-	GetHandleVerifier [0x0x7d664a+9770]
-	BaseThreadInitThunk [0x0x75577ba9+25]
-	RtlInitializeExceptionChain [0x0x771ec2eb+107]
-	RtlClearBits [0x0x771ec26f+191]
-</status>
+<status status="NOT RUN" start="2025-06-18T19:01:45.820309" elapsed="0.000000"/>
 </kw>
-<status status="FAIL" start="2025-06-12T11:08:48.191124" elapsed="0.747614">ElementNotInteractableException: Message: element not interactable
-  (Session info: chrome=137.0.7151.70)
-Stacktrace:
-	GetHandleVerifier [0x0x7e3763+63299]
-	GetHandleVerifier [0x0x7e37a4+63364]
-	(No symbol) [0x0x610f70]
-	(No symbol) [0x0x65aa2b]
-	(No symbol) [0x0x64f445]
-	(No symbol) [0x0x67e57c]
-	(No symbol) [0x0x64eed4]
-	(No symbol) [0x0x67e7f4]
-	(No symbol) [0x0x69fa4a]
-	(No symbol) [0x0x67e376]
-	(No symbol) [0x0x64d6e0]
-	(No symbol) [0x0x64e544]
-	GetHandleVerifier [0x0xa3e033+2531347]
-	GetHandleVerifier [0x0xa39332+2511634]
-	GetHandleVerifier [0x0x809eda+220858]
-	GetHandleVerifier [0x0x7fa528+156936]
-	GetHandleVerifier [0x0x800c5d+183357]
-	GetHandleVerifier [0x0x7eb6c8+95912]
-	GetHandleVerifier [0x0x7eb870+96336]
-	GetHandleVerifier [0x0x7d664a+9770]
-	BaseThreadInitThunk [0x0x75577ba9+25]
-	RtlInitializeExceptionChain [0x0x771ec2eb+107]
-	RtlClearBits [0x0x771ec26f+191]
-</status>
+<status status="FAIL" start="2025-06-18T19:01:14.749039" elapsed="31.071270">Element 'xpath=//a[contains(@href, 'phu-kien-lam-dep')]' not visible after 30 seconds.</status>
 </kw>
-<kw name="Add to cart" owner="keyword">
-<status status="NOT RUN" start="2025-06-12T11:08:48.938738" elapsed="0.000000"/>
+<kw name="Product Information" owner="keyword">
+<status status="NOT RUN" start="2025-06-18T19:01:45.821312" elapsed="0.001306"/>
 </kw>
-<kw name="Select to cart" owner="keyword">
-<status status="NOT RUN" start="2025-06-12T11:08:48.939739" elapsed="0.000000"/>
+<kw name="Add Product To Cart" owner="keyword">
+<status status="NOT RUN" start="2025-06-18T19:01:45.822618" elapsed="0.000000"/>
 </kw>
-<kw name="Fill in Payment Information" owner="keyword">
+<kw name="Go to Shopping Cart" owner="keyword">
+<status status="NOT RUN" start="2025-06-18T19:01:45.822618" elapsed="0.000000"/>
+</kw>
+<kw name="Proceed to Payment" owner="keyword">
+<status status="NOT RUN" start="2025-06-18T19:01:45.822618" elapsed="0.000000"/>
+</kw>
+<kw name="Fill Payment Information" owner="keyword">
 <arg>${fullname}</arg>
 <arg>${address}</arg>
 <arg>${email}</arg>
 <arg>${phone}</arg>
-<status status="NOT RUN" start="2025-06-12T11:08:48.939739" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-06-18T19:01:45.822618" elapsed="0.000000"/>
 </kw>
-<kw name="Press the button to continue payment" owner="keyword">
-<status status="NOT RUN" start="2025-06-12T11:08:48.939739" elapsed="0.000999"/>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
+<msg time="2025-06-18T19:01:46.055349" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-36.png"&gt;&lt;img src="selenium-screenshot-36.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-06-18T19:01:45.824006" elapsed="0.232487"/>
 </kw>
-<status status="FAIL" start="2025-06-12T11:08:33.186154" elapsed="15.754584">ElementNotInteractableException: Message: element not interactable
-  (Session info: chrome=137.0.7151.70)
-Stacktrace:
-	GetHandleVerifier [0x0x7e3763+63299]
-	GetHandleVerifier [0x0x7e37a4+63364]
-	(No symbol) [0x0x610f70]
-	(No symbol) [0x0x65aa2b]
-	(No symbol) [0x0x64f445]
-	(No symbol) [0x0x67e57c]
-	(No symbol) [0x0x64eed4]
-	(No symbol) [0x0x67e7f4]
-	(No symbol) [0x0x69fa4a]
-	(No symbol) [0x0x67e376]
-	(No symbol) [0x0x64d6e0]
-	(No symbol) [0x0x64e544]
-	GetHandleVerifier [0x0xa3e033+2531347]
-	GetHandleVerifier [0x0xa39332+2511634]
-	GetHandleVerifier [0x0x809eda+220858]
-	GetHandleVerifier [0x0x7fa528+156936]
-	GetHandleVerifier [0x0x800c5d+183357]
-	GetHandleVerifier [0x0x7eb6c8+95912]
-	GetHandleVerifier [0x0x7eb870+96336]
-	GetHandleVerifier [0x0x7d664a+9770]
-	BaseThreadInitThunk [0x0x75577ba9+25]
-	RtlInitializeExceptionChain [0x0x771ec2eb+107]
-	RtlClearBits [0x0x771ec26f+191]
-</status>
+<status status="FAIL" start="2025-06-18T19:01:06.671281" elapsed="39.385212">Element 'xpath=//a[contains(@href, 'phu-kien-lam-dep')]' not visible after 30 seconds.</status>
 </test>
-<status status="FAIL" start="2025-06-12T11:08:32.294389" elapsed="16.651543"/>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-18T19:01:46.057571" elapsed="2.397580"/>
+</kw>
+<status status="FAIL" start="2025-06-18T19:00:58.647417" elapsed="49.807734"/>
 </suite>
 <statistics>
 <total>
