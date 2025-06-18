@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.10.11 on win32)" generated="2025-06-18T21:17:49.145454" rpa="false" schemaversion="5">
+<suite id="s1" name="Hello" source="d:\QCA_intern\hello.robot">
+<test id="s1-t1" name="Đăng nhập tài khoản" line="9">
+<kw name="Mở Trang web" owner="keyword">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-06-18T21:17:49.853610" level="INFO">Opening browser 'chrome' to base url 'https://lamthaocosmetics.vn/'.</msg>
+<msg time="2025-06-18T21:17:50.247072" level="WARN">There was an error managing chromedriver (error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json)); using driver found in the cache</msg>
+<msg time="2025-06-18T21:17:50.249549" level="WARN">Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)</msg>
+<msg time="2025-06-18T21:17:53.051213" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-06-18T21:17:53.051711" level="FAIL">WebDriverException: Message: unknown error: net::ERR_INTERNET_DISCONNECTED
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff601d2fe75+79173]
+	GetHandleVerifier [0x0x7ff601d2fed0+79264]
+	(No symbol) [0x0x7ff601ae9e5a]
+	(No symbol) [0x0x7ff601ae6874]
+	(No symbol) [0x0x7ff601ad7589]
+	(No symbol) [0x0x7ff601ad9331]
+	(No symbol) [0x0x7ff601ad78a6]
+	(No symbol) [0x0x7ff601ad7306]
+	(No symbol) [0x0x7ff601ad6fca]
+	(No symbol) [0x0x7ff601ad4b9f]
+	(No symbol) [0x0x7ff601ad541c]
+	(No symbol) [0x0x7ff601aede0a]
+	(No symbol) [0x0x7ff601b91dfe]
+	(No symbol) [0x0x7ff601b6896a]
+	(No symbol) [0x0x7ff601b9100d]
+	(No symbol) [0x0x7ff601b68743]
+	(No symbol) [0x0x7ff601b314c1]
+	(No symbol) [0x0x7ff601b32253]
+	GetHandleVerifier [0x0x7ff601ffa2ad+3004797]
+	GetHandleVerifier [0x0x7ff601ff46fd+2981325]
+	GetHandleVerifier [0x0x7ff602013350+3107360]
+	GetHandleVerifier [0x0x7ff601d4a9fe+188622]
+	GetHandleVerifier [0x0x7ff601d5228f+219487]
+	GetHandleVerifier [0x0x7ff601d38dc4+115860]
+	GetHandleVerifier [0x0x7ff601d38f79+116297]
+	GetHandleVerifier [0x0x7ff601d1f528+11256]
+	BaseThreadInitThunk [0x0x7ffdfc377344+20]
+	RtlUserThreadStart [0x0x7ffdfcee26b1+33]
+</msg>
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2025-06-18T21:17:49.853110" elapsed="3.379127">WebDriverException: Message: unknown error: net::ERR_INTERNET_DISCONNECTED
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff601d2fe75+79173]
+	GetHandleVerifier [0x0x7ff601d2fed0+79264]
+	(No symbol) [0x0x7ff601ae9e5a]
+	(No symbol) [0x0x7ff601ae6874]
+	(No symbol) [0x0x7ff601ad7589]
+	(No symbol) [0x0x7ff601ad9331]
+	(No symbol) [0x0x7ff601ad78a6]
+	(No symbol) [0x0x7ff601ad7306]
+	(No symbol) [0x0x7ff601ad6fca]
+	(No symbol) [0x0x7ff601ad4b9f]
+	(No symbol) [0x0x7ff601ad541c]
+	(No symbol) [0x0x7ff601aede0a]
+	(No symbol) [0x0x7ff601b91dfe]
+	(No symbol) [0x0x7ff601b6896a]
+	(No symbol) [0x0x7ff601b9100d]
+	(No symbol) [0x0x7ff601b68743]
+	(No symbol) [0x0x7ff601b314c1]
+	(No symbol) [0x0x7ff601b32253]
+	GetHandleVerifier [0x0x7ff601ffa2ad+3004797]
+	GetHandleVerifier [0x0x7ff601ff46fd+2981325]
+	GetHandleVerifier [0x0x7ff602013350+3107360]
+	GetHandleVerifier [0x0x7ff601d4a9fe+188622]
+	GetHandleVerifier [0x0x7ff601d5228f+219487]
+	GetHandleVerifier [0x0x7ff601d38dc4+115860]
+	GetHandleVerifier [0x0x7ff601d38f79+116297]
+	GetHandleVerifier [0x0x7ff601d1f528+11256]
+	BaseThreadInitThunk [0x0x7ffdfc377344+20]
+	RtlUserThreadStart [0x0x7ffdfcee26b1+33]
+</status>
+</kw>
+<status status="FAIL" start="2025-06-18T21:17:49.849749" elapsed="3.382488">WebDriverException: Message: unknown error: net::ERR_INTERNET_DISCONNECTED
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff601d2fe75+79173]
+	GetHandleVerifier [0x0x7ff601d2fed0+79264]
+	(No symbol) [0x0x7ff601ae9e5a]
+	(No symbol) [0x0x7ff601ae6874]
+	(No symbol) [0x0x7ff601ad7589]
+	(No symbol) [0x0x7ff601ad9331]
+	(No symbol) [0x0x7ff601ad78a6]
+	(No symbol) [0x0x7ff601ad7306]
+	(No symbol) [0x0x7ff601ad6fca]
+	(No symbol) [0x0x7ff601ad4b9f]
+	(No symbol) [0x0x7ff601ad541c]
+	(No symbol) [0x0x7ff601aede0a]
+	(No symbol) [0x0x7ff601b91dfe]
+	(No symbol) [0x0x7ff601b6896a]
+	(No symbol) [0x0x7ff601b9100d]
+	(No symbol) [0x0x7ff601b68743]
+	(No symbol) [0x0x7ff601b314c1]
+	(No symbol) [0x0x7ff601b32253]
+	GetHandleVerifier [0x0x7ff601ffa2ad+3004797]
+	GetHandleVerifier [0x0x7ff601ff46fd+2981325]
+	GetHandleVerifier [0x0x7ff602013350+3107360]
+	GetHandleVerifier [0x0x7ff601d4a9fe+188622]
+	GetHandleVerifier [0x0x7ff601d5228f+219487]
+	GetHandleVerifier [0x0x7ff601d38dc4+115860]
+	GetHandleVerifier [0x0x7ff601d38f79+116297]
+	GetHandleVerifier [0x0x7ff601d1f528+11256]
+	BaseThreadInitThunk [0x0x7ffdfc377344+20]
+	RtlUserThreadStart [0x0x7ffdfcee26b1+33]
+</status>
+</kw>
+<kw name="chọn vào một sản phẩm bất kì" owner="keyword">
+<status status="NOT RUN" start="2025-06-18T21:17:53.242263" elapsed="0.000000"/>
+</kw>
+<kw name="kích vào mua ngay" owner="keyword">
+<status status="NOT RUN" start="2025-06-18T21:17:53.245812" elapsed="0.000000"/>
+</kw>
+<kw name="điền thông tin" owner="keyword">
+<status status="NOT RUN" start="2025-06-18T21:17:53.245812" elapsed="0.000000"/>
+</kw>
+<kw name="kích vào tiếp tục đến phương thức thanh toán" owner="keyword">
+<status status="NOT RUN" start="2025-06-18T21:17:53.245812" elapsed="0.008627"/>
+</kw>
+<status status="FAIL" start="2025-06-18T21:17:49.835744" elapsed="3.422888">WebDriverException: Message: unknown error: net::ERR_INTERNET_DISCONNECTED
+  (Session info: chrome=137.0.7151.104)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff601d2fe75+79173]
+	GetHandleVerifier [0x0x7ff601d2fed0+79264]
+	(No symbol) [0x0x7ff601ae9e5a]
+	(No symbol) [0x0x7ff601ae6874]
+	(No symbol) [0x0x7ff601ad7589]
+	(No symbol) [0x0x7ff601ad9331]
+	(No symbol) [0x0x7ff601ad78a6]
+	(No symbol) [0x0x7ff601ad7306]
+	(No symbol) [0x0x7ff601ad6fca]
+	(No symbol) [0x0x7ff601ad4b9f]
+	(No symbol) [0x0x7ff601ad541c]
+	(No symbol) [0x0x7ff601aede0a]
+	(No symbol) [0x0x7ff601b91dfe]
+	(No symbol) [0x0x7ff601b6896a]
+	(No symbol) [0x0x7ff601b9100d]
+	(No symbol) [0x0x7ff601b68743]
+	(No symbol) [0x0x7ff601b314c1]
+	(No symbol) [0x0x7ff601b32253]
+	GetHandleVerifier [0x0x7ff601ffa2ad+3004797]
+	GetHandleVerifier [0x0x7ff601ff46fd+2981325]
+	GetHandleVerifier [0x0x7ff602013350+3107360]
+	GetHandleVerifier [0x0x7ff601d4a9fe+188622]
+	GetHandleVerifier [0x0x7ff601d5228f+219487]
+	GetHandleVerifier [0x0x7ff601d38dc4+115860]
+	GetHandleVerifier [0x0x7ff601d38f79+116297]
+	GetHandleVerifier [0x0x7ff601d1f528+11256]
+	BaseThreadInitThunk [0x0x7ffdfc377344+20]
+	RtlUserThreadStart [0x0x7ffdfcee26b1+33]
+</status>
+</test>
+<status status="FAIL" start="2025-06-18T21:17:49.160860" elapsed="4.114208"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Hello" id="s1" pass="0" fail="1" skip="0">Hello</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-06-18T21:17:50.247072" level="WARN">There was an error managing chromedriver (error sending request for url (https://googlechromelabs.github.io/chrome-for-testing/known-good-versions-with-downloads.json)); using driver found in the cache</msg>
+<msg time="2025-06-18T21:17:50.249549" level="WARN">Error sending stats to Plausible: error sending request for url (https://plausible.io/api/event)</msg>
+</errors>
+</robot>

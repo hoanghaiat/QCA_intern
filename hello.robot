@@ -6,6 +6,7 @@ Variables    locator.py
 *** Variables ***   
 ${test}    A
 *** Test Cases ***
+Đăng nhập tài khoản 
     Mở Trang web    
     chọn vào một sản phẩm bất kì
     kích vào mua ngay
