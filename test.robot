@@ -21,9 +21,9 @@ ${address}        32 Đường hoikieng, Phường HoaQuy
 *** Test Cases ***
 Verify Checkout Functionality
     Open Home Page
-    Open Product Catalog 
-    Choose Beauty Accessories
-    Add to cart
-    Select to cart
-    Fill in Payment Information  ${fullname}    ${address}    ${email}    ${phone}
-    Press the button to continue payment
+    Menu
+    Product Information
+    Add Product To Cart      
+    Go to Shopping Cart    
+    Proceed to Payment
+    Fill Payment Information    ${fullname}    ${address}    ${email}    ${phone}
