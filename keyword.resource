@@ -17,17 +17,18 @@ Open Website
     Open Browser    https://lamthaocosmetics.vn/    Edge
     Maximize Browser Window
     Set Selenium Speed    0.5s
-    sleep   15s
 Close Advertisement Popup
-    ${result}=    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${AD_POPUP_CLOSE_BTN}    timeout=10s
-    Run Keyword If    '${result[0]}' == 'PASS'    Click Element    ${AD_POPUP_CLOSE_BTN}
+    ${RESULT}=    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${AD_POPUP_CLOSE_BTN}    timeout=10s
+    Run Keyword If    '${RESULT[0]}' == 'PASS'    Click Element    ${AD_POPUP_CLOSE_BTN} 
 Select Product
+    Wait Until Element Is Visible    ${PRODUCT_CATEGORY}    timeout=10s
     Click Element    ${PRODUCT_CATEGORY}
     Click Element    ${FIRST_CATEGORY}
 
 View Product Detail And Add To Cart
+    Wait Until Element Is Visible    ${FIRST_PRODUCT}    timeout=10s
     Click Element    ${FIRST_PRODUCT}
-  
+    Wait Until Element Is Visible    ${QUANTITY_INPUT}    timeout=5s
     Input Text       ${QUANTITY_INPUT}    4
     Sleep            1s
     Click Element    ${DECREASE_QUANTITY}
