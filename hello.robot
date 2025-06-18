@@ -1,14 +1,15 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    keyword.resource
 Variables    locator.py
+Resource    keyword.resource
 
-*** Variables ***   
-${test}    A
+Suite Setup    Open Browsers 
+Suite Teardown    Close Browser
 *** Test Cases ***
-Đăng nhập tài khoản 
-    Mở Trang web    
-    chọn vào một sản phẩm bất kì
-    kích vào mua ngay
-    điền thông tin
-    kích vào tiếp tục đến phương thức thanh toán
+Login And Purchase
+    #Open Browser
+    Menu
+    Select Any Product
+    Click Buy Now
+    Fill In User Information
+    Proceed To Payment Method
