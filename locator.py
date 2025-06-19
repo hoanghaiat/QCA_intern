@@ -2,10 +2,10 @@
 
 menu_danhmucsp = "//nav[@class='navbar-mainmenu']/div[@class='danhmucsanpham']"
 submenu_chamsocdamat = "//span[contains(text(),'Chăm Sóc Da Mặt')]"
-link_matna89 =  '//a[contains(text(),"Mặt Nạ")]'
+link_son =  '//a[contains(text(),"Son Dưỡng")]'
 
+product_item = '//a[contains(text(),"Son Dưỡng Hỗ Trợ Giảm Thâm & Khô Môi Mediheal Labocare Pantenolips")]'
 
-product_item = "//a[text()='Mặt Nạ Dưỡng Da Foodaholic Ampel Treatment Mask']"
 add_product= "//a[text()='Thêm vào giỏ hàng']"
 buy_now_button = "//div[@class='gridoftemplateaction3']/a[text()='Mua ngay']"
 

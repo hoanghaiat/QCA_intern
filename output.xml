@@ -1,224 +1,274 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3 (Python 3.10.11 on win32)" generated="2025-06-18T23:49:00.533697" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3 (Python 3.10.11 on win32)" generated="2025-06-19T13:13:46.706133" rpa="false" schemaversion="5">
 <suite id="s1" name="Hello" source="d:\QCA_intern\hello.robot">
 <kw name="Open Browsers" owner="keyword" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-06-18T23:49:00.932356" level="INFO">Opening browser 'chrome' to base url 'https://lamthaocosmetics.vn/'.</msg>
+<msg time="2025-06-19T13:13:47.168102" level="INFO">Opening browser 'chrome' to base url 'https://lamthaocosmetics.vn/'.</msg>
 <arg>${url}</arg>
 <arg>${Browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-06-18T23:49:00.932356" elapsed="5.235158"/>
+<status status="PASS" start="2025-06-19T13:13:47.168102" elapsed="10.378563"/>
 </kw>
-<status status="PASS" start="2025-06-18T23:49:00.932356" elapsed="5.236158"/>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-19T13:13:57.547777" elapsed="0.144960"/>
 </kw>
-<test id="s1-t1" name="Login And Purchase" line="9">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${menu_danhmucsp}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-19T13:13:57.693746" elapsed="0.218991"/>
+</kw>
+<status status="PASS" start="2025-06-19T13:13:47.168102" elapsed="10.744925"/>
+</kw>
+<test id="s1-t1" name="Login And Purchase" line="10">
 <kw name="Menu" owner="keyword">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-06-18T23:49:06.244574" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=137.0.7151.104)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff737c3cda5+78885]
-	GetHandleVerifier [0x0x7ff737c3ce00+78976]
-	(No symbol) [0x0x7ff7379f9bca]
-	(No symbol) [0x0x7ff7379d1e71]
-	(No symbol) [0x0x7ff737a8039e]
-	(No symbol) [0x0x7ff737aa0b42]
-	(No symbol) [0x0x7ff737a78963]
-	(No symbol) [0x0x7ff737a416b1]
-	(No symbol) [0x0x7ff737a42443]
-	GetHandleVerifier [0x0x7ff737f14eed+3061101]
-	GetHandleVerifier [0x0x7ff737f0f33d+3037629]
-	GetHandleVerifier [0x0x7ff737f2e592+3165202]
-	GetHandleVerifier [0x0x7ff737c5730e+186766]
-	GetHandleVerifier [0x0x7ff737c5eb3f+217535]
-	GetHandleVerifier [0x0x7ff737c459b4+114740]
-	GetHandleVerifier [0x0x7ff737c45b69+115177]
-	GetHandleVerifier [0x0x7ff737c2c368+10728]
-	BaseThreadInitThunk [0x0x7ffdfc377344+20]
-	RtlUserThreadStart [0x0x7ffdfcee26b1+33]
-</msg>
-<msg time="2025-06-18T23:49:06.265976" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=137.0.7151.104)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff737c3cda5+78885]
-	GetHandleVerifier [0x0x7ff737c3ce00+78976]
-	(No symbol) [0x0x7ff7379f9bca]
-	(No symbol) [0x0x7ff7379d1e71]
-	(No symbol) [0x0x7ff737a8039e]
-	(No symbol) [0x0x7ff737aa0b42]
-	(No symbol) [0x0x7ff737a78963]
-	(No symbol) [0x0x7ff737a416b1]
-	(No symbol) [0x0x7ff737a42443]
-	GetHandleVerifier [0x0x7ff737f14eed+3061101]
-	GetHandleVerifier [0x0x7ff737f0f33d+3037629]
-	GetHandleVerifier [0x0x7ff737f2e592+3165202]
-	GetHandleVerifier [0x0x7ff737c5730e+186766]
-	GetHandleVerifier [0x0x7ff737c5eb3f+217535]
-	GetHandleVerifier [0x0x7ff737c459b4+114740]
-	GetHandleVerifier [0x0x7ff737c45b69+115177]
-	GetHandleVerifier [0x0x7ff737c2c368+10728]
-	BaseThreadInitThunk [0x0x7ffdfc377344+20]
-	RtlUserThreadStart [0x0x7ffdfcee26b1+33]
-</msg>
 <arg>${menu_danhmucsp}</arg>
-<arg>20s</arg>
+<arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-06-18T23:49:06.216774" elapsed="0.055735">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=137.0.7151.104)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff737c3cda5+78885]
-	GetHandleVerifier [0x0x7ff737c3ce00+78976]
-	(No symbol) [0x0x7ff7379f9bca]
-	(No symbol) [0x0x7ff7379d1e71]
-	(No symbol) [0x0x7ff737a8039e]
-	(No symbol) [0x0x7ff737aa0b42]
-	(No symbol) [0x0x7ff737a78963]
-	(No symbol) [0x0x7ff737a416b1]
-	(No symbol) [0x0x7ff737a42443]
-	GetHandleVerifier [0x0x7ff737f14eed+3061101]
-	GetHandleVerifier [0x0x7ff737f0f33d+3037629]
-	GetHandleVerifier [0x0x7ff737f2e592+3165202]
-	GetHandleVerifier [0x0x7ff737c5730e+186766]
-	GetHandleVerifier [0x0x7ff737c5eb3f+217535]
-	GetHandleVerifier [0x0x7ff737c459b4+114740]
-	GetHandleVerifier [0x0x7ff737c45b69+115177]
-	GetHandleVerifier [0x0x7ff737c2c368+10728]
-	BaseThreadInitThunk [0x0x7ffdfc377344+20]
-	RtlUserThreadStart [0x0x7ffdfcee26b1+33]
-</status>
+<status status="PASS" start="2025-06-19T13:13:57.915980" elapsed="0.053059"/>
 </kw>
 <kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:13:57.970521" level="INFO">Simulating Mouse Over on element '//nav[@class='navbar-mainmenu']/div[@class='danhmucsanpham']'.</msg>
 <arg>${menu_danhmucsp}</arg>
 <doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<status status="NOT RUN" start="2025-06-18T23:49:06.273510" elapsed="0.000000"/>
+<status status="PASS" start="2025-06-19T13:13:57.969759" elapsed="0.308581"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>${submenu_chamsocdamat}</arg>
-<arg>20s</arg>
+<arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-06-18T23:49:06.273510" elapsed="0.000999"/>
+<status status="PASS" start="2025-06-19T13:13:58.278340" elapsed="0.039533"/>
 </kw>
 <kw name="Mouse Over" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:13:58.318380" level="INFO">Simulating Mouse Over on element '//span[contains(text(),'Chăm Sóc Da Mặt')]'.</msg>
 <arg>${submenu_chamsocdamat}</arg>
 <doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<status status="NOT RUN" start="2025-06-18T23:49:06.275406" elapsed="0.000763"/>
+<status status="PASS" start="2025-06-19T13:13:58.318380" elapsed="0.325581"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${link_matna89}</arg>
-<arg>20s</arg>
+<arg>${link_son}</arg>
+<arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-06-18T23:49:06.277174" elapsed="0.000995"/>
+<status status="PASS" start="2025-06-19T13:13:58.643961" elapsed="0.022626"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${link_son}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-06-19T13:13:58.666587" elapsed="0.295531"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${link_son}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-06-19T13:13:58.962118" elapsed="0.035023"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<arg>${link_matna89}</arg>
+<msg time="2025-06-19T13:13:58.997141" level="INFO">Clicking element '//a[contains(text(),"Son Dưỡng")]'.</msg>
+<arg>${link_son}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-06-18T23:49:06.278981" elapsed="0.000000"/>
+<status status="PASS" start="2025-06-19T13:13:58.997141" elapsed="2.584542"/>
 </kw>
-<status status="FAIL" start="2025-06-18T23:49:06.216275" elapsed="0.063208">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=137.0.7151.104)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff737c3cda5+78885]
-	GetHandleVerifier [0x0x7ff737c3ce00+78976]
-	(No symbol) [0x0x7ff7379f9bca]
-	(No symbol) [0x0x7ff7379d1e71]
-	(No symbol) [0x0x7ff737a8039e]
-	(No symbol) [0x0x7ff737aa0b42]
-	(No symbol) [0x0x7ff737a78963]
-	(No symbol) [0x0x7ff737a416b1]
-	(No symbol) [0x0x7ff737a42443]
-	GetHandleVerifier [0x0x7ff737f14eed+3061101]
-	GetHandleVerifier [0x0x7ff737f0f33d+3037629]
-	GetHandleVerifier [0x0x7ff737f2e592+3165202]
-	GetHandleVerifier [0x0x7ff737c5730e+186766]
-	GetHandleVerifier [0x0x7ff737c5eb3f+217535]
-	GetHandleVerifier [0x0x7ff737c459b4+114740]
-	GetHandleVerifier [0x0x7ff737c45b69+115177]
-	GetHandleVerifier [0x0x7ff737c2c368+10728]
-	BaseThreadInitThunk [0x0x7ffdfc377344+20]
-	RtlUserThreadStart [0x0x7ffdfcee26b1+33]
-</status>
+<status status="PASS" start="2025-06-19T13:13:57.914903" elapsed="3.666780"/>
+</kw>
+<kw name="Handle Advertise" owner="keyword">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:07.074656" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-34.png"&gt;&lt;img src="selenium-screenshot-34.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-06-19T13:14:07.074656" level="FAIL">Element '//button[@class='close close-popup-contact']' not visible after 5 seconds.</msg>
+<arg>//button[@class='close close-popup-contact']</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-06-19T13:14:01.584441" elapsed="5.493287">Element '//button[@class='close close-popup-contact']' not visible after 5 seconds.</status>
+</kw>
+<msg time="2025-06-19T13:14:07.078339" level="INFO">${check} = False</msg>
+<var>${check}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//button[@class='close close-popup-contact']</arg>
+<arg>5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-06-19T13:14:01.583940" elapsed="5.494899"/>
+</kw>
+<if>
+<branch type="IF" condition="${check}">
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>//button[@class='close close-popup-contact']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-06-19T13:14:07.078839" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-06-19T13:14:07.078839" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-06-19T13:14:07.078839" elapsed="0.000000"/>
+</if>
+<status status="PASS" start="2025-06-19T13:14:01.582683" elapsed="5.496156"/>
 </kw>
 <kw name="Select Any Product" owner="keyword">
-<status status="NOT RUN" start="2025-06-18T23:49:06.299692" elapsed="0.000000"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${product_item}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-19T13:14:07.082315" elapsed="0.155437"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${product_item}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-06-19T13:14:07.238252" elapsed="0.317927"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:07.556679" level="INFO">Clicking element '//a[contains(text(),"Son Dưỡng Hỗ Trợ Giảm Thâm &amp; Khô Môi Mediheal Labocare Pantenolips")]'.</msg>
+<arg>${product_item}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-19T13:14:07.556679" elapsed="3.829067"/>
+</kw>
+<status status="PASS" start="2025-06-19T13:14:07.080728" elapsed="4.305209"/>
 </kw>
 <kw name="Click Buy Now" owner="keyword">
-<status status="NOT RUN" start="2025-06-18T23:49:06.308028" elapsed="0.000000"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${buy_now_button}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-19T13:14:11.402186" elapsed="0.105020"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${buy_now_button}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-06-19T13:14:11.508000" elapsed="0.311823"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:11.822685" level="INFO">Clicking element '//div[@class='gridoftemplateaction3']/a[text()='Mua ngay']'.</msg>
+<arg>${buy_now_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-19T13:14:11.821034" elapsed="0.096615"/>
+</kw>
+<status status="PASS" start="2025-06-19T13:14:11.401438" elapsed="0.517019"/>
 </kw>
 <kw name="Fill In User Information" owner="keyword">
-<status status="NOT RUN" start="2025-06-18T23:49:06.322321" elapsed="0.000000"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${full_name_input}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-19T13:14:11.920785" elapsed="1.422984"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:13.345412" level="INFO">Typing text 'Nguyễn Nho Tường Vi' into text field '//input[@placeholder='Họ và tên']'.</msg>
+<arg>${full_name_input}</arg>
+<arg>Nguyễn Nho Tường Vi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-19T13:14:13.344769" elapsed="0.128582"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:13.474609" level="INFO">Typing text 'nguyennhotuongvi@gmail.com' into text field '//input[@placeholder='Email']'.</msg>
+<arg>${email_input}</arg>
+<arg>nguyennhotuongvi@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-19T13:14:13.473351" elapsed="0.145689"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:13.619040" level="INFO">Typing text '0898224770' into text field '//input[@placeholder='Số điện thoại']'.</msg>
+<arg>${phone_input}</arg>
+<arg>0898224770</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-19T13:14:13.619040" elapsed="0.096775"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:13.715815" level="INFO">Typing text '4 Phan Trong Tuệ' into text field '//input[@placeholder='Địa chỉ']'.</msg>
+<arg>${address_input}</arg>
+<arg>4 Phan Trong Tuệ</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-19T13:14:13.715815" elapsed="0.302568"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:14.018383" level="INFO">Selecting options from selection list '//select[@id='customer_shipping_province']' by label Đà Nẵng.</msg>
+<arg>${province_select}</arg>
+<arg>Đà Nẵng</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-06-19T13:14:14.018383" elapsed="0.217216"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Hải Châu</arg>
+<arg>10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-19T13:14:14.236770" elapsed="1.386236"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${district_select}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-19T13:14:15.624011" elapsed="0.022416"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:15.646931" level="INFO">Selecting options from selection list '//select[@id='customer_shipping_district']' by label Quận Hải Châu.</msg>
+<arg>${district_select}</arg>
+<arg>Quận Hải Châu</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-06-19T13:14:15.646931" elapsed="0.083199"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Hòa Cường Nam</arg>
+<arg>10s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-19T13:14:15.730130" elapsed="0.812192"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ward_select}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-19T13:14:16.542322" elapsed="0.033919"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:16.577267" level="INFO">Selecting options from selection list '//select[@id='customer_shipping_ward']' by label Phường Hòa Cường Nam.</msg>
+<arg>${ward_select}</arg>
+<arg>Phường Hòa Cường Nam</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2025-06-19T13:14:16.576241" elapsed="0.071796"/>
+</kw>
+<status status="PASS" start="2025-06-19T13:14:11.920785" elapsed="4.727511"/>
 </kw>
 <kw name="Proceed To Payment Method" owner="keyword">
-<status status="NOT RUN" start="2025-06-18T23:49:06.325496" elapsed="0.000697"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${continue_to_payment_button}</arg>
+<arg>20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-19T13:14:16.650676" elapsed="1.172936"/>
 </kw>
-<status status="FAIL" start="2025-06-18T23:49:06.169014" elapsed="0.198667">NoSuchWindowException: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=137.0.7151.104)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff737c3cda5+78885]
-	GetHandleVerifier [0x0x7ff737c3ce00+78976]
-	(No symbol) [0x0x7ff7379f9bca]
-	(No symbol) [0x0x7ff7379d1e71]
-	(No symbol) [0x0x7ff737a8039e]
-	(No symbol) [0x0x7ff737aa0b42]
-	(No symbol) [0x0x7ff737a78963]
-	(No symbol) [0x0x7ff737a416b1]
-	(No symbol) [0x0x7ff737a42443]
-	GetHandleVerifier [0x0x7ff737f14eed+3061101]
-	GetHandleVerifier [0x0x7ff737f0f33d+3037629]
-	GetHandleVerifier [0x0x7ff737f2e592+3165202]
-	GetHandleVerifier [0x0x7ff737c5730e+186766]
-	GetHandleVerifier [0x0x7ff737c5eb3f+217535]
-	GetHandleVerifier [0x0x7ff737c459b4+114740]
-	GetHandleVerifier [0x0x7ff737c45b69+115177]
-	GetHandleVerifier [0x0x7ff737c2c368+10728]
-	BaseThreadInitThunk [0x0x7ffdfc377344+20]
-	RtlUserThreadStart [0x0x7ffdfcee26b1+33]
-</status>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${continue_to_payment_button}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-06-19T13:14:17.824190" elapsed="0.281636"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>${continue_to_payment_button}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-06-19T13:14:18.105991" elapsed="0.017599"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-19T13:14:18.124594" level="INFO">Clicking element '//button[@class='step-footer-continue-btn btn']'.</msg>
+<arg>${continue_to_payment_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-19T13:14:18.123590" elapsed="0.057648"/>
+</kw>
+<status status="PASS" start="2025-06-19T13:14:16.648827" elapsed="1.532792"/>
+</kw>
+<status status="PASS" start="2025-06-19T13:13:57.913527" elapsed="20.268974"/>
 </test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-06-18T23:49:06.468914" elapsed="2.205476"/>
+<status status="PASS" start="2025-06-19T13:14:18.187852" elapsed="2.366616"/>
 </kw>
-<status status="FAIL" start="2025-06-18T23:49:00.539468" elapsed="8.134922"/>
+<status status="PASS" start="2025-06-19T13:13:46.714903" elapsed="33.839565"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Hello" id="s1" pass="0" fail="1" skip="0">Hello</stat>
+<stat name="Hello" id="s1" pass="1" fail="0" skip="0">Hello</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-06-18T23:49:06.244574" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=137.0.7151.104)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff737c3cda5+78885]
-	GetHandleVerifier [0x0x7ff737c3ce00+78976]
-	(No symbol) [0x0x7ff7379f9bca]
-	(No symbol) [0x0x7ff7379d1e71]
-	(No symbol) [0x0x7ff737a8039e]
-	(No symbol) [0x0x7ff737aa0b42]
-	(No symbol) [0x0x7ff737a78963]
-	(No symbol) [0x0x7ff737a416b1]
-	(No symbol) [0x0x7ff737a42443]
-	GetHandleVerifier [0x0x7ff737f14eed+3061101]
-	GetHandleVerifier [0x0x7ff737f0f33d+3037629]
-	GetHandleVerifier [0x0x7ff737f2e592+3165202]
-	GetHandleVerifier [0x0x7ff737c5730e+186766]
-	GetHandleVerifier [0x0x7ff737c5eb3f+217535]
-	GetHandleVerifier [0x0x7ff737c459b4+114740]
-	GetHandleVerifier [0x0x7ff737c45b69+115177]
-	GetHandleVerifier [0x0x7ff737c2c368+10728]
-	BaseThreadInitThunk [0x0x7ffdfc377344+20]
-	RtlUserThreadStart [0x0x7ffdfcee26b1+33]
-</msg>
 </errors>
 </robot>
