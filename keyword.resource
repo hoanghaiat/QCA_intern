@@ -1,50 +1,65 @@
 *** Settings ***
-Library    SeleniumLibrary
-Variables  locator.py
-
-*** Variables ***
-${Browser}    chrome
-${url}        https://lamthaocosmetics.vn/
+Library           SeleniumLibrary
+Library           Collections
+Library           BuiltIn
+Variables         locator.py
 
 *** Keywords ***
-Mở Trang web
-    Open Browser    ${url}    ${Browser}
+
+open_browsers
+    Open Browser    ${url}    ${browser}
     Maximize Browser Window
-    Đóng Popup Nếu Có
-    Sleep    2s
+    close_advertise_popup
 
-Chọn Sản Phẩm Mới
-    Wait Until Element Is Visible    ${SAN_PHAM_MOI}    15s
-    Click Element    ${SAN_PHAM_MOI}
-    Sleep    3s
+close_advertise_popup
+    ${popup_visible}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${advertise_close_button}    5s
+    IF    '${popup_visible}' == 'True'
+        Click Element    ${advertise_close_button}
+    END
 
-Chọn Sản Phẩm Và Mua Ngay
-    Wait Until Page Contains Element    ${BUTTON_MUA_NGAY}    15s
-    Scroll Element Into View            ${BUTTON_MUA_NGAY}
-    Sleep                               1s
-    Wait Until Element Is Visible       ${BUTTON_MUA_NGAY}    10s
-    Click Element                       ${BUTTON_MUA_NGAY}
+navigate_to_product_category
+    close_advertise_popup
+    Wait Until Element Is Visible    ${menu_category}        20s
+    Mouse Over                       ${menu_category}
+    Wait Until Element Is Visible    ${menu_skincare}        10s
+    Click Element                    ${menu_skincare}
 
-Điền Thông Tin Mua Hàng
-    Wait Until Element Is Visible    ${TEN_KHACH_HANG}    15s
-    Input Text    ${TEN_KHACH_HANG}      H Loet eban
-    Input Text    ${EMAIL}               na9854@gmail.com
-    Input Text    ${SDT}                 0901234567
-    Input Text    ${DIA_CHI}             k502/h33/24a
+select_product
+    Wait Until Element Is Visible    ${product_link}         20s
+    Scroll Element Into View         ${product_link}
+    Click Element                    ${product_link}
 
-    Wait Until Element Is Visible    ${SELECT_TINH_THANH}    15s
-    Select From List By Label        ${SELECT_TINH_THANH}    TP. Đà Nẵng
+add_to_cart
+    Wait Until Element Is Visible    ${add_to_cart_button}   20s
+    Scroll Element Into View         ${add_to_cart_button}
+    Click Element                    ${add_to_cart_button}
 
-    Wait Until Element Is Visible    ${SELECT_QUAN_HUYEN}    15s
-    Select From List By Label        ${SELECT_QUAN_HUYEN}    Hải Châu
+proceed_to_checkout
+    Wait Until Element Is Visible    ${proceed_to_checkout_button}    20s
+    Scroll Element Into View         ${proceed_to_checkout_button}
+    Click Element                    ${proceed_to_checkout_button}
 
-    Wait Until Element Is Visible    ${SELECT_PHUONG_XA}    15s
-    Select From List By Label        ${SELECT_PHUONG_XA}     Hòa Cường Nam
+fill_delivery_information
+    Wait Until Element Is Visible    ${input_fullname}    20s
+    Input Text                       ${input_fullname}    hloeteban
+    Input Text                       ${input_email}       eban@gmail.com
+    Input Text                       ${input_phone}       0962457584
+    Input Text                       ${input_address}     k502/h33/24a đường 2/9
 
-    Wait Until Element Is Visible    ${BUTTON_TIEP_TUC_THANH_TOAN}    10s
-    Click Element    ${BUTTON_TIEP_TUC_THANH_TOAN}
-    Sleep    5s
+    Select From List By Label        ${select_province}    Đà Nẵng
+    Wait Until Element Contains      ${select_district}    Quận Hải Châu    20s
+    Select From List By Label        ${select_district}    Quận Hải Châu
+    Wait Until Element Contains      ${select_ward}        Phường Hòa Cường Nam    20s
+    Select From List By Label        ${select_ward}        Phường Hòa Cường Nam
 
-Đóng Popup Nếu Có
-    ${popup_exists}=    Run Keyword And Return Status    Element Should Be Visible    ${POPUP_CLOSE_BUTTON}    5s
-    Run Keyword If    ${popup_exists}    Click Element    ${POPUP_CLOSE_BUTTON}
+    Scroll Element Into View         ${submit_button}
+    Wait Until Keyword Succeeds      30s    1s    Click Element    ${submit_button}
+
+confirm_order
+    Wait Until Element Is Visible    ${confirm_order_button}    20s
+    Scroll Element Into View         ${confirm_order_button}
+    Click Element                    ${confirm_order_button}
+
+return_to_homepage
+    Wait Until Element Is Visible    ${home_logo}    20s
+    Click Element                    ${home_logo}
