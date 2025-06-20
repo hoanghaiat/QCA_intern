@@ -10,7 +10,7 @@ Suite Teardown    Close Browser
 *** Test Cases ***
 CheckOut
     #Open Browsers
-    Menu
+    Menu Interaction
     Product Information
     Add Product To Cart
     Payment
