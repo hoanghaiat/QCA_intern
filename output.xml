@@ -1,112 +1,247 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3 (Python 3.10.9 on win32)" generated="2025-06-18T19:00:58.645066" rpa="false" schemaversion="5">
+<robot generator="Robot 7.3 (Python 3.10.9 on win32)" generated="2025-06-20T12:04:14.277750" rpa="false" schemaversion="5">
 <suite id="s1" name="Test" source="D:\Git\QCA_intern\test.robot">
-<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
-<msg time="2025-06-18T19:00:58.913959" level="INFO">Opening browser 'Chrome' to base url 'https://lamthaocosmetics.vn/cart'.</msg>
-<arg>${url}</arg>
-<arg>${Browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-06-18T19:00:58.912956" elapsed="7.758325"/>
-</kw>
-<test id="s1-t1" name="Verify Checkout Functionality" line="22">
-<kw name="Maximize Browser Window" owner="SeleniumLibrary" type="SETUP">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-06-18T19:01:06.672667" elapsed="0.100666"/>
-</kw>
-<kw name="Open Home Page" owner="keyword">
+<kw name="Open Home Page" owner="keyword" type="SETUP">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-06-18T19:01:06.778418" level="INFO">Opening browser 'chrome' to base url 'https://lamthaocosmetics.vn/cart'.</msg>
+<msg time="2025-06-20T12:04:14.722934" level="INFO">Opening browser 'chrome' to base url 'https://lamthaocosmetics.vn/cart'.</msg>
 <arg>${url}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-06-18T19:01:06.777340" elapsed="7.831405"/>
+<status status="PASS" start="2025-06-20T12:04:14.722934" elapsed="7.291522"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-06-18T19:01:14.608745" elapsed="0.139293"/>
+<status status="PASS" start="2025-06-20T12:04:22.015459" elapsed="0.169774"/>
 </kw>
 <doc>Mở trình duyệt và truy cập trang chủ</doc>
-<status status="PASS" start="2025-06-18T19:01:06.775337" elapsed="7.972701"/>
+<status status="PASS" start="2025-06-20T12:04:14.706362" elapsed="7.478871"/>
+</kw>
+<test id="s1-t1" name="Verify Checkout Functionality" line="17">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary" type="SETUP">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-20T12:04:22.252282" elapsed="0.018774"/>
+</kw>
+<kw name="Handle Advertise" owner="keyword">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-06-20T12:04:27.596238" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-25.png"&gt;&lt;img src="selenium-screenshot-25.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-06-20T12:04:27.596238" level="FAIL">Element 'xpath=//button[@class='close close-popup-contact']' not visible after 5 seconds.</msg>
+<arg>xpath=//button[@class='close close-popup-contact']</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-06-20T12:04:22.274643" elapsed="5.375951">Element 'xpath=//button[@class='close close-popup-contact']' not visible after 5 seconds.</status>
+</kw>
+<msg time="2025-06-20T12:04:27.650594" level="INFO">${popup_visible} = False</msg>
+<var>${popup_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//button[@class='close close-popup-contact']</arg>
+<arg>timeout=5</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-06-20T12:04:22.274643" elapsed="5.375951"/>
+</kw>
+<if>
+<branch type="IF" condition="${popup_visible}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[@class='close close-popup-contact']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-06-20T12:04:27.650594" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-06-20T12:04:27.650594" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-06-20T12:04:27.650594" elapsed="0.000000"/>
+</if>
+<doc>Xử lý popup quảng cáo nếu có</doc>
+<status status="PASS" start="2025-06-20T12:04:22.273354" elapsed="5.377240"/>
 </kw>
 <kw name="Menu" owner="keyword">
+<kw name="Handle Advertise" owner="keyword">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${product_category}</arg>
-<arg>timeout=30</arg>
+<msg time="2025-06-20T12:04:32.940865" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-26.png"&gt;&lt;img src="selenium-screenshot-26.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-06-20T12:04:32.940865" level="FAIL">Element 'xpath=//button[@class='close close-popup-contact']' not visible after 5 seconds.</msg>
+<arg>xpath=//button[@class='close close-popup-contact']</arg>
+<arg>timeout=5</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-06-18T19:01:14.750038" elapsed="0.208184"/>
+<status status="FAIL" start="2025-06-20T12:04:27.651597" elapsed="5.289268">Element 'xpath=//button[@class='close close-popup-contact']' not visible after 5 seconds.</status>
+</kw>
+<msg time="2025-06-20T12:04:32.942268" level="INFO">${popup_visible} = False</msg>
+<var>${popup_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//button[@class='close close-popup-contact']</arg>
+<arg>timeout=5</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-06-20T12:04:27.651597" elapsed="5.290671"/>
+</kw>
+<if>
+<branch type="IF" condition="${popup_visible}">
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>xpath=//button[@class='close close-popup-contact']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-06-20T12:04:32.943276" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-06-20T12:04:32.942268" elapsed="0.001008"/>
+</branch>
+<status status="PASS" start="2025-06-20T12:04:32.942268" elapsed="0.001008"/>
+</if>
+<doc>Xử lý popup quảng cáo nếu có</doc>
+<status status="PASS" start="2025-06-20T12:04:27.651597" elapsed="5.291679"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${product_category}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-20T12:04:32.944276" elapsed="0.144926"/>
 </kw>
 <kw name="Mouse Over" owner="SeleniumLibrary">
-<msg time="2025-06-18T19:01:14.959221" level="INFO">Simulating Mouse Over on element 'xpath=//nav[@class='navbar-mainmenu']//div[@class='danhmucsanpham']'.</msg>
-<arg>xpath=${product_category}</arg>
+<msg time="2025-06-20T12:04:33.090205" level="INFO">Simulating Mouse Over on element '//nav[@class='navbar-mainmenu']//div[@class='danhmucsanpham']'.</msg>
+<arg>${product_category}</arg>
 <doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<status status="PASS" start="2025-06-18T19:01:14.959221" elapsed="0.334520"/>
+<status status="PASS" start="2025-06-20T12:04:33.089202" elapsed="0.303991"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-06-18T19:01:45.808264" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-35.png"&gt;&lt;img src="selenium-screenshot-35.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-06-18T19:01:45.809264" level="FAIL">Element 'xpath=//a[contains(@href, 'phu-kien-lam-dep')]' not visible after 30 seconds.</msg>
-<arg>xpath=${beauty_accessories}</arg>
-<arg>timeout=30</arg>
+<arg>${beauty_accessories}</arg>
+<arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-06-18T19:01:15.293741" elapsed="30.525217">Element 'xpath=//a[contains(@href, 'phu-kien-lam-dep')]' not visible after 30 seconds.</status>
+<status status="PASS" start="2025-06-20T12:04:33.394577" elapsed="0.031093"/>
 </kw>
 <kw name="Mouse Over" owner="SeleniumLibrary">
-<arg>xpath=${beauty_accessories}</arg>
+<msg time="2025-06-20T12:04:33.426677" level="INFO">Simulating Mouse Over on element '//span[contains(text(),'Phụ Kiện Làm Đẹp')]'.</msg>
+<arg>${beauty_accessories}</arg>
 <doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<status status="NOT RUN" start="2025-06-18T19:01:45.818958" elapsed="0.001351"/>
+<status status="PASS" start="2025-06-20T12:04:33.425670" elapsed="0.303105"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=${type_product}</arg>
-<arg>timeout=30</arg>
+<arg>${type_product}</arg>
+<arg>30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2025-06-18T19:01:45.820309" elapsed="0.000000"/>
+<status status="PASS" start="2025-06-20T12:04:33.729781" elapsed="0.022839"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<arg>xpath=${type_product}</arg>
+<msg time="2025-06-20T12:04:33.752620" level="INFO">Clicking element '//div[@class='listmenuchuan']//a[contains(text(),'Kẹp Tóc')]'.</msg>
+<arg>${type_product}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-06-18T19:01:45.820309" elapsed="0.000000"/>
+<status status="PASS" start="2025-06-20T12:04:33.752620" elapsed="2.684697"/>
 </kw>
-<status status="FAIL" start="2025-06-18T19:01:14.749039" elapsed="31.071270">Element 'xpath=//a[contains(@href, 'phu-kien-lam-dep')]' not visible after 30 seconds.</status>
+<status status="PASS" start="2025-06-20T12:04:27.651597" elapsed="8.786720"/>
 </kw>
 <kw name="Product Information" owner="keyword">
-<status status="NOT RUN" start="2025-06-18T19:01:45.821312" elapsed="0.001306"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${product_1}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-20T12:04:36.439317" elapsed="0.030151"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${product_1}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-06-20T12:04:36.469468" elapsed="0.318063"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-20T12:04:36.788533" level="INFO">Clicking element '//a[text()='Kẹp Tóc Jary Hair Clip Set 5 Cái']'.</msg>
+<arg>${product_1}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-20T12:04:36.787531" elapsed="2.961202"/>
+</kw>
+<status status="PASS" start="2025-06-20T12:04:36.438317" elapsed="3.310416"/>
 </kw>
 <kw name="Add Product To Cart" owner="keyword">
-<status status="NOT RUN" start="2025-06-18T19:01:45.822618" elapsed="0.000000"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${add_to_cart}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-20T12:04:39.750738" elapsed="0.035171"/>
 </kw>
-<kw name="Go to Shopping Cart" owner="keyword">
-<status status="NOT RUN" start="2025-06-18T19:01:45.822618" elapsed="0.000000"/>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${add_to_cart}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-06-20T12:04:39.785909" elapsed="0.305611"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-20T12:04:40.093522" level="INFO">Clicking element '//a[contains(text(),'Thêm vào giỏ hàng')]'.</msg>
+<arg>${add_to_cart}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-20T12:04:40.092521" elapsed="0.058281"/>
+</kw>
+<status status="PASS" start="2025-06-20T12:04:39.749738" elapsed="0.401064"/>
 </kw>
 <kw name="Proceed to Payment" owner="keyword">
-<status status="NOT RUN" start="2025-06-18T19:01:45.822618" elapsed="0.000000"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${pay_ment}</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-20T12:04:40.152800" elapsed="2.876885"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${pay_ment}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-06-20T12:04:43.030688" elapsed="0.287002"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-06-20T12:04:43.317690" level="INFO">Clicking element '//div[@class='thantoannga']'.</msg>
+<arg>${pay_ment}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-20T12:04:43.317690" elapsed="0.431934"/>
+</kw>
+<status status="PASS" start="2025-06-20T12:04:40.151801" elapsed="3.598824"/>
 </kw>
 <kw name="Fill Payment Information" owner="keyword">
-<arg>${fullname}</arg>
-<arg>${address}</arg>
-<arg>${email}</arg>
-<arg>${phone}</arg>
-<status status="NOT RUN" start="2025-06-18T19:01:45.822618" elapsed="0.000000"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_FULLNAME}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-06-20T12:04:43.752625" elapsed="2.217358"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-20T12:04:45.971046" level="INFO">Typing text 'Trandathuy' into text field '//input[@id='billing_address_full_name']'.</msg>
+<arg>${INPUT_FULLNAME}</arg>
+<arg>Trandathuy</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-20T12:04:45.969983" elapsed="0.193310"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-20T12:04:46.164575" level="INFO">Typing text 'dathuyne@gmail.com' into text field '//input[@id='checkout_user_email']'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>dathuyne@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-20T12:04:46.164575" elapsed="0.185600"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-20T12:04:46.351180" level="INFO">Typing text '0942192764' into text field '//input[@id='billing_address_phone']'.</msg>
+<arg>${INPUT_PHONE}</arg>
+<arg>0942192764</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-20T12:04:46.350175" elapsed="0.331804"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-20T12:04:46.682975" level="INFO">Typing text 'Hoi Kieng 32' into text field '//input[@id='billing_address_address1']'.</msg>
+<arg>${INPUT_ADDRESS}</arg>
+<arg>Hoi Kieng 32</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-20T12:04:46.681979" elapsed="0.133159"/>
+</kw>
+<status status="PASS" start="2025-06-20T12:04:43.751624" elapsed="3.063514"/>
 </kw>
 <kw name="Capture Page Screenshot" owner="SeleniumLibrary" type="TEARDOWN">
-<msg time="2025-06-18T19:01:46.055349" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-36.png"&gt;&lt;img src="selenium-screenshot-36.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-06-20T12:04:46.974644" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-27.png"&gt;&lt;img src="selenium-screenshot-27.png" width="800px"&gt;&lt;/a&gt;</msg>
 <doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-06-18T19:01:45.824006" elapsed="0.232487"/>
+<status status="PASS" start="2025-06-20T12:04:46.816135" elapsed="0.158509"/>
 </kw>
-<status status="FAIL" start="2025-06-18T19:01:06.671281" elapsed="39.385212">Element 'xpath=//a[contains(@href, 'phu-kien-lam-dep')]' not visible after 30 seconds.</status>
+<status status="PASS" start="2025-06-20T12:04:22.186727" elapsed="24.789309"/>
 </test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-06-18T19:01:46.057571" elapsed="2.397580"/>
+<status status="PASS" start="2025-06-20T12:04:46.978526" elapsed="2.441021"/>
 </kw>
-<status status="FAIL" start="2025-06-18T19:00:58.647417" elapsed="49.807734"/>
+<status status="PASS" start="2025-06-20T12:04:14.279945" elapsed="35.139602"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Test" id="s1" pass="0" fail="1" skip="0">Test</stat>
+<stat name="Test" id="s1" pass="1" fail="0" skip="0">Test</stat>
 </suite>
 </statistics>
 <errors>
