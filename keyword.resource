@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    Collections
 Variables    locator.py
 
 *** Variables ***
@@ -14,6 +15,11 @@ ${address}      16 Trần Kế Xương, Hải Châu, Đà Nẵng
 Open Home Page
     Open Browser    ${url}    ${Browser}
     Maximize Browser Window
+    Set Selenium Speed    0.5s
+Close Advertisement
+    Wait Until Element Is Visible    ${close_advertisement}    timeout=10s
+    Click Element    ${close_advertisement}
+    
 Open Product Category
     Click Element    ${product_category}    
 Choose Pharmaceutical
@@ -26,6 +32,7 @@ Shopping Cart
 Add Quantity
     Wait Until Element Is Visible    ${add_quantity}    timeout=5s
     Click Element    ${add_quantity} 
+    Sleep    1s
     Click Element    ${add_quantity}
 Checkout
     Click Element    ${checkout_button}
@@ -41,8 +48,6 @@ Fill In Information
     Click Element    ${select_district}
     Sleep    3s
     Click Element    ${select_ward}
-
-Next
     Click Element    ${next_button}
 Close All Browsers Custom
     Close All Browsers

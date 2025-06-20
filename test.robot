@@ -3,6 +3,9 @@ Library    SeleniumLibrary
 Resource   keyword.resource
 Variables    locator.py
 
+Suite Setup       Open Home Page
+Suite Teardown    Close All Browsers Custom
+
 *** Variables ***
 ${url}    https://lamthaocosmetics.vn/
 ${Browser}        edge
@@ -14,6 +17,7 @@ ${address}       16 Trần Kế Xương, Hải Châu, Đà Nẵng
 *** Test Cases ***
 Test Checkout Process
     Open Home Page
+    Close Advertisement
     Open Product Category
     Choose Pharmaceutical
     Add To Cart
@@ -21,7 +25,6 @@ Test Checkout Process
     Add Quantity
     Checkout
     Fill In Information    ${fullname}    ${email}    ${phone}    ${address}
-    Next
     Close All Browsers Custom
 
 

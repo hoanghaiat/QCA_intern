@@ -1,3 +1,4 @@
+close_advertisement = "//button[@class='close close-popup-contact']"
 product_category = "//div[@class='danhmucsanpham']"
 pharmaceutical_cosmetics = "//a[@href='/collections/duoc-my-pham']//span[@class='textcata']"
 product = "//img[contains(@alt, 'Sữa Rửa Mặt') and contains(@src, 'olive-cleansing-foam')]"
