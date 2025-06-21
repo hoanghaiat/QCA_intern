@@ -14,7 +14,7 @@ for email in emails:
 # 2. Tìm tất cả số điện thoại (gồm đúng 10 số, chia bởi dấu -)
 phone_text = "Liên hệ 091-234-5678 hoặc 123-4567-890 để được tư vấn. Gọi 987-654-3210 ngay!"
 
-phone_regex = r'\b\d{3}-\d{3}-\d{4}\b'
+phone_regex = r'\b(?:\d{3}-\d{3}-\d{4}|\d{3}-\d{4}-\d{3})\b'
 phone_numbers = re.findall(phone_regex,phone_text)
 print("Các số điện thoại hợp lệ:  ")
 for phone in phone_numbers:
