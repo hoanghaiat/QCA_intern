@@ -94,7 +94,7 @@ def bai_7():
         if words:
             first_word = words[0]
             if first_word[0].isupper():
-                list.append(first_word)
+                list_word.append(first_word)
     print("Các từ viết hoa đầu câu: ", list_word)   
 
 
