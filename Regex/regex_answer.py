@@ -87,12 +87,12 @@ def bai_7():
     capital_text = "Today is a good day. My name is Hoa. How are you?"    
     
     print("\nRun bai_7")
-    capital_regex = r'(?:^|(?<=\.))([A-Z][a-z]*)'
-    results = re.findall(capital_regex,capital_text)
-    print("Các từ viết hoa đầu câu là: ")
+    capital_regex = r'(?<=[.!?]\s|^)[A-Z][a-z]*'
+    results = re.findall(capital_regex, capital_text)
+    
+    print("Các từ viết hoa đầu câu là:")
     for word in results:
         print(f"{word}")
-
 
 def bai_8():
     # 8. Từ danh sách URL, trích ra phần tên miền chính (ví dụ: google, facebook).
