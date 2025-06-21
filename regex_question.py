@@ -4,6 +4,13 @@ import re
 # Email hợp lệ có dạng: chữ cái/số + @ + tên miền + .com
 emails = ["test123@gmail.com", "abc@xyz", "user@domain.com", "invalid@.com"]
 
+pattern = r'^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.(com)$'
+
+for email in emails:
+    if re.match(pattern, email):
+        print(f"{email} ➜ Hợp lệ")
+    else:
+        print(f"{email} ➜ Không hợp lệ")
 # 2. Tìm tất cả số điện thoại (gồm đúng 10 số, chia bởi dấu -)
 phone_text = "Liên hệ 091-234-5678 hoặc 123-4567-890 để được tư vấn. Gọi 987-654-3210 ngay!"
 
