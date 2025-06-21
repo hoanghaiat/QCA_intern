@@ -88,14 +88,14 @@ def bai_7():
     
     print("\nRun bai_7")
     sentences = re.split(r'[.!?]\s*',capital_text)
-    list = []
+    list_word = []
     for sentence in sentences:
         words = sentence.strip().split()
         if words:
             first_word = words[0]
             if first_word[0].isupper():
                 list.append(first_word)
-    print("Các từ viết hoa đầu câu: ", list)   
+    print("Các từ viết hoa đầu câu: ", list_word)   
 
 
 def bai_8():
