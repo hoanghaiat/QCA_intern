@@ -10,3 +10,4 @@ for date in dates:
         print(f"{date} Định dạng không hợp lệ")
         
 
+# 00/12/2020 không hợp lệ
