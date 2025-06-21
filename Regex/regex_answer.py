@@ -19,7 +19,7 @@ def bai_2():
     phone_text = "Liên hệ 091-234-5678 hoặc 123-4567-890 để được tư vấn. Gọi 987-654-3210 ngay!"
     
     print("\nRun bai_2")
-    phone_regex = r'\b(?:\d{3}-\d{3}-\d{4}|\d{3}-\d{4}-\d{3})\b'
+    phone_regex = r'\b(\d{3}-\d{3}-\d{4}|\d{3}-\d{4}-\d{3})\b'
     phone_numbers = re.findall(phone_regex,phone_text)
     print("Các số điện thoại hợp lệ:  ")
     for phone in phone_numbers:
@@ -73,7 +73,7 @@ def bai_6():
     dates = ["18/06/2025", "31/13/2022", "00/12/2020", "5/6/2020"]    
     
     print("\nRun bai_6")
-    date_regex = r'^\d{2}/\d{2}/\d{4}$'
+    date_regex = r'^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$'
     for date in dates:
         if re.match(date_regex,date):
             print(f"{date} : đúng định dạng")
@@ -87,12 +87,16 @@ def bai_7():
     capital_text = "Today is a good day. My name is Hoa. How are you?"    
     
     print("\nRun bai_7")
-    capital_regex = r'(?<=[.!?]\s|^)[A-Z][a-z]*'
-    results = re.findall(capital_regex, capital_text)
-    
-    print("Các từ viết hoa đầu câu là:")
-    for word in results:
-        print(f"{word}")
+    sentences = re.split(r'[.!?]\s*',capital_text)
+    list = []
+    for sentence in sentences:
+        words = sentence.strip().split()
+        if words:
+            first_word = words[0]
+            if first_word[0].isupper():
+                list.append(first_word)
+    print("Các từ viết hoa đầu câu: ", list)   
+
 
 def bai_8():
     # 8. Từ danh sách URL, trích ra phần tên miền chính (ví dụ: google, facebook).
