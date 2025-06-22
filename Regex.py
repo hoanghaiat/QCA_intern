@@ -1,5 +1,12 @@
 import re
 
+def bai_1():
+    print("\n== Bài 1: Kiểm tra email hợp lệ ==")
+    emails = ["test123@gmail.com", "abc@xyz", "user@domain.com", "invalid@.com"]
+    pattern = r'^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.(com)$'
+    for email in emails:
+        print(f"{email} ➜ {'Hợp lệ' if re.match(pattern, email) else 'Không hợp lệ'}")
+
 def bai_2():
     print("\n== Bài 2: Tìm số điện thoại định dạng 10 số có dấu gạch ==")
     text = "Liên hệ 091-234-5678 hoặc 123-4567-890 để được tư vấn. Gọi 987-654-3210 ngay!"
@@ -11,26 +18,20 @@ def bai_2():
 def bai_3():
     print("\n== Bài 3: Kiểm tra chuỗi có chứa chữ số không ==")
     text = "Tôi có 2 con mèo và 1 con chó."
-    result = "Có chứa chữ số!" if re.search(r'\d', text) else "Không chứa chữ số."
-    print(result)
+    print("Có chứa chữ số!" if re.search(r'\d', text) else "Không chứa chữ số.")
 
 def bai_4():
     print("\n== Bài 4: Loại bỏ ký tự không phải chữ cái ==")
     text = "Hello! This is test123 #2025."
     cleaned = re.sub(r'[^A-Za-z\s]', '', text)
-    print("Chuỗi sau khi làm sạch:", cleaned.strip())
+    print("Chuỗi sau làm sạch:", cleaned.strip())
 
 def bai_5():
     print("\n== Bài 5: Kiểm tra mật khẩu mạnh ==")
     passwords = ["Abc12345", "abcdef", "ABC123456", "abcD1"]
+    pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$'
     for pwd in passwords:
-        strong = (
-            len(pwd) >= 8 and
-            re.search(r'[A-Z]', pwd) and
-            re.search(r'[a-z]', pwd) and
-            re.search(r'\d', pwd)
-        )
-        print(f"{pwd} ➜ {'Mạnh' if strong else 'Yếu'}")
+        print(f"{pwd} ➜ {'Mạnh' if re.match(pattern, pwd) else 'Yếu'}")
 
 def bai_6():
     print("\n== Bài 6: Kiểm tra ngày định dạng dd/mm/yyyy ==")
@@ -43,8 +44,8 @@ def bai_6():
 def bai_7():
     print("\n== Bài 7: Từ viết hoa đầu câu ==")
     text = "Today is a good day. My name is Hoa. How are you?"
-    capitals = re.findall(r'(?:^|(?<=\.\s))([A-Z][a-z]*)', text)
-    print("Từ viết hoa đầu câu:", capitals)
+    words = re.findall(r'(?:^|(?<=\.\s))([A-Z][a-z]*)', text)
+    print("Từ viết hoa đầu câu:", words)
 
 def bai_8():
     print("\n== Bài 8: Trích tên miền chính từ URL ==")
@@ -58,13 +59,13 @@ def bai_9():
     print("\n== Bài 9: Tìm từ khóa bắt đầu bằng # ==")
     text = "Tôi yêu #Python và #MachineLearning, bạn có thích #AI không?"
     hashtags = re.findall(r'#\w+', text)
-    print("Hashtag tìm được:", hashtags)
+    print("Hashtag:", hashtags)
 
 def bai_10():
     print("\n== Bài 10: Kiểm tra số thực dương ==")
     nums = ["3.14", "0.5", "10.0", ".", "3.", "abc", "-1.2"]
     for num in nums:
-        if re.fullmatch(r'((0|[1-9]\d*)\.\d+)', num):
+        if re.fullmatch(r'(0|[1-9]\d*)\.\d+', num):
             print(f"{num} ➜ Hợp lệ")
         else:
             print(f"{num} ➜ Không hợp lệ")
@@ -98,3 +99,37 @@ def bai_15():
     text = "Chúng tôi làm việc với NASA, WHO và các tổ chức như UNICEF, nhưng không phải USAID."
     result = re.findall(r'\b[A-Z]{2,}\b', text)
     print("Từ viết hoa toàn bộ:", result)
+
+
+# === MENU CHẠY ===
+function_list = {
+    "bai_1": bai_1,
+    "bai_2": bai_2,
+    "bai_3": bai_3,
+    "bai_4": bai_4,
+    "bai_5": bai_5,
+    "bai_6": bai_6,
+    "bai_7": bai_7,
+    "bai_8": bai_8,
+    "bai_9": bai_9,
+    "bai_10": bai_10,
+    "bai_11": bai_11,
+    "bai_12": bai_12,
+    "bai_13": bai_13,
+    "bai_14": bai_14,
+    "bai_15": bai_15,
+}
+
+if __name__ == "__main__":
+    user_input = input("Nhập tên hàm (vd: bai_1, bai_2) hoặc 'all': ").strip().lower()
+    if user_input == "all":
+        print("== Chạy tất cả các bài ==")
+        for func in function_list.values():
+            func()
+    else:
+        selected = [f.strip() for f in user_input.split(',')]
+        for name in selected:
+            if name in function_list:
+                function_list[name]()
+            else:
+                print(f"Hàm '{name}' không tồn tại.")
