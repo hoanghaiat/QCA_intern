@@ -5,13 +5,17 @@ def bai_1():
     emails = ["test123@gmail.com", "abc@xyz", "user@domain.com", "invalid@.com"]
     pattern = r'^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.(com)$'
     for email in emails:
-        print(f"{email} ➜ {'Hợp lệ' if re.match(pattern, email) else 'Không hợp lệ'}")
+        if re.match(pattern, email):
+            print(f"{email} ➜ Hợp lệ")
+        else:
+            print(f"{email} ➜ Không hợp lệ")
 
 def bai_2():
     print("\n== Bài 2: Tìm số điện thoại định dạng 10 số, có dấu gạch ==")
     text = "Liên hệ 091-234-5678 hoặc 123-4567-890 để được tư vấn. Gọi 987-654-3210 ngay!"
     pattern = r'\b(\d{3}-\d{3}-\d{4}|\d{3}-\d{4}-\d{3})\b'
-    for phone in re.findall(pattern, text):
+    phones = re.findall(pattern, text)
+    for phone in phones:
         print("Số điện thoại:", phone)
 
 def bai_3():
@@ -33,21 +37,32 @@ def bai_5():
     passwords = ["Abc12345", "abcdef", "ABC123456", "abcD1"]
     pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$'
     for pwd in passwords:
-        print(f"{pwd} ➜ {'Mạnh' if re.match(pattern, pwd) else 'Yếu'}")
+        if re.match(pattern, pwd):
+            print(f"{pwd} ➜ Mạnh")
+        else:
+            print(f"{pwd} ➜ Yếu")
 
 def bai_6():
     print("\n== Bài 6: Kiểm tra định dạng ngày dd/mm/yyyy ==")
     dates = ["18/06/2025", "31/13/2022", "00/12/2020", "5/6/2020"]
     pattern = r'^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$'
     for d in dates:
-        print(f"{d} ➜ {'Đúng' if re.match(pattern, d) else 'Sai'}")
+        if re.match(pattern, d):
+            print(f"{d} ➜ Đúng")
+        else:
+            print(f"{d} ➜ Sai")
 
 def bai_7():
     print("\n== Bài 7: Từ viết hoa đầu câu ==")
     text = "Today is a good day. My name is Hoa. How are you?"
     sentences = re.split(r'[.!?]\s*', text)
-    words = [s.strip().split()[0] for s in sentences if s]
-    print("Từ đầu câu:", [w for w in words if w[0].isupper()])
+    words = []
+    for s in sentences:
+        if s:
+            first_word = s.strip().split()[0]
+            if first_word[0].isupper():
+                words.append(first_word)
+    print("Từ đầu câu:", words)
 
 def bai_8():
     print("\n== Bài 8: Trích tên miền chính từ URL ==")
@@ -67,7 +82,10 @@ def bai_10():
     nums = ["3.14", "0.5", "10.0", ".", "3.", "abc", "-1.2"]
     pattern = r'^[0-9]+\.[0-9]+$'
     for num in nums:
-        print(f"{num} ➜ {'Hợp lệ' if re.match(pattern, num) else 'Không hợp lệ'}")
+        if re.match(pattern, num):
+            print(f"{num} ➜ Hợp lệ")
+        else:
+            print(f"{num} ➜ Không hợp lệ")
 
 def bai_11():
     print("\n== Bài 11: Tìm email trong văn bản ==")
@@ -87,8 +105,12 @@ def bai_13():
 def bai_14():
     print("\n== Bài 14: Kiểm tra mã bưu điện Việt Nam ==")
     codes = ["70000", "123456", "ABCDE", "00000", "7500"]
+    pattern = r'^\d{5}$'
     for code in codes:
-        print(f"{code} ➜ {'Hợp lệ' if re.match(r'^\d{5}$', code) else 'Không hợp lệ'}")
+        if re.match(pattern, code):
+            print(f"{code} ➜ Hợp lệ")
+        else:
+            print(f"{code} ➜ Không hợp lệ")
 
 def bai_15():
     print("\n== Bài 15: Tìm từ viết hoa toàn bộ (tên viết tắt) ==")
@@ -102,7 +124,6 @@ function_list = {
 
 if __name__ == "__main__":
     user_input = input("Nhập các bài cần chạy (vd: bai_1,bai_2 hoặc all): ").strip().lower()
-
     if user_input == "all":
         for func in function_list.values():
             func()
