@@ -73,7 +73,7 @@ def bai_6():
     dates = ["18/06/2025", "31/13/2022", "00/12/2020", "5/6/2020"]    
     
     print("\nRun bai_6")
-    date_regex = r'^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$'
+    date_regex = r'^(0?[1-9]|[12][0-9]|3[01])/(0?[1-9]|1[0-2])/\d{4}$'
     for date in dates:
         if re.match(date_regex,date):
             print(f"{date} : đúng định dạng")
