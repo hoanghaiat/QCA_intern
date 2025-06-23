@@ -25,13 +25,19 @@ def bai_4():
     text = "Hello! This is test123 #2025."
     cleaned = re.sub(r'[^A-Za-z\s]', '', text)
     print("Chuỗi sau làm sạch:", cleaned.strip())
+import re
 
 def bai_5():
     print("\n== Bài 5: Kiểm tra mật khẩu mạnh ==")
     passwords = ["Abc12345", "abcdef", "ABC123456", "abcD1"]
     pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$'
+    
     for pwd in passwords:
-        print(f"{pwd} ➜ {'Mạnh' if re.match(pattern, pwd) else 'Yếu'}")
+        if re.match(pattern, pwd):
+            print(f"{pwd} ➜ Mạnh")
+        else:
+            print(f"{pwd} ➜ Yếu")
+
 
 def bai_6():
     print("\n== Bài 6: Kiểm tra ngày định dạng dd/mm/yyyy ==")
@@ -79,7 +85,7 @@ def bai_11():
 def bai_12():
     print("\n== Bài 12: Tìm số nguyên hoặc thập phân dương/âm ==")
     text = "Nhiệt độ hôm nay là -10.5 độ, hôm qua là 25 và ngày mai có thể là -3."
-    numbers = re.findall(r'-?\d+(?:\.\d+)?', text)
+    numbers = re.findall(r'-?\d+(\d+)?', text)
     print("Số tìm được:", numbers)
 
 def bai_13():
@@ -90,10 +96,14 @@ def bai_13():
 
 def bai_14():
     print("\n== Bài 14: Kiểm tra mã bưu điện Việt Nam (5 chữ số) ==")
-    codes = ["70000", "123456", "ABCDE", "00000", "7500"]
-    for code in codes:
-        print(f"{code} ➜ {'Hợp lệ' if re.fullmatch(r'\d{5}', code) else 'Không hợp lệ'}")
+    postal_codes = ["70000", "123456", "ABCDE", "00000", "7500"]
+    pattern = r'\d{5}'  # Mã hợp lệ: đúng 5 chữ số
 
+    for code in postal_codes:
+        if re.fullmatch(pattern, code):
+            print(f"{code} ➜ Hợp lệ")
+        else:
+            print(f"{code} ➜ Không hợp lệ")
 def bai_15():
     print("\n== Bài 15: Trích các từ viết hoa toàn bộ ==")
     text = "Chúng tôi làm việc với NASA, WHO và các tổ chức như UNICEF, nhưng không phải USAID."
