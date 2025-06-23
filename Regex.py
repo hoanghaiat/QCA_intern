@@ -50,7 +50,7 @@ def bai_6():
 def bai_7():
     print("\n== Bài 7: Từ viết hoa đầu câu ==")
     text = "Today is a good day. My name is Hoa. How are you?"
-    words = re.findall(r'(?:^|(?<=\.\s))([A-Z][a-z]*)', text)
+    words = re.findall(r'(?:^|(?<=\s))([A-Z][a-z]*)', text)
     print("Từ viết hoa đầu câu:", words)
 
 def bai_8():
