@@ -1,4 +1,5 @@
 import re
+from urllib.parse import urlparse
 
 def bai_1():
     # 1. Viết regex để kiểm tra xem một chuỗi có phải là email hợp lệ không.
@@ -73,25 +74,30 @@ def bai_7():
     capital_text = "Today is a good day. My name is Hoa. How are you?"    
     
     print("\nRun bai_7")
-    pattern = r'\s*([A-Z][a-z]*)'
     sentences = re.split(r'[.!?]\s*', capital_text)
     capital_words = []
+
     for sentence in sentences:
-        match = re.match(pattern, sentence)
+        sentence = sentence.strip()
+        if not sentence:
+            continue
+        match = re.match(r'[A-Z][a-z]*', sentence)
         if match:
-            capital_words.append(match.group(1))
+            capital_words.append(match.group())
+
     print("Từ viết hoa đầu câu:", capital_words)
 
 def bai_8():
     # 8. Từ danh sách URL, trích ra phần tên miền chính (ví dụ: google, facebook).
-    urls = ["https://www.google.com", "http://facebook.com", "https://news.yahoo.com"]    
+    urls = ["https://www.google.com", "http://facebook.com", "https://news.yahoo.com",  "https://blog.facebook.com"]    
     
     print("\nRun bai_8")
-    pattern = r'https?://(?:www\.|news\.)?([a-zA-Z0-9-]+)\.'
     for url in urls:
-        match = re.search(pattern, url)
-        if match:
-            print(f"{url} ➜ {match.group(1)}")
+        domain = urlparse(url).netloc
+        parts = domain.split('.')
+        if len(parts) >= 2:
+            main_domain = parts[-2]  # Lấy phần đứng trước TLD
+            print(f"{url} ➜ {main_domain}")
 
 def bai_9():
     # 9. Tìm tất cả từ khóa bắt đầu bằng # trong đoạn văn bản.
