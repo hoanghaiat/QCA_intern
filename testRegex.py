@@ -1,193 +1,199 @@
 import re
 
-def bai_1():
-    # 1. Viết regex để kiểm tra xem một chuỗi có phải là email hợp lệ không.
-    # Email hợp lệ có dạng: chữ cái/số + @ + tên miền + .com
+def bai1():
+# 1. Viết regex để kiểm tra xem một chuỗi có phải là email hợp lệ không.
+# Email hợp lệ có dạng: chữ cái/số + @ + tên miền + .com
     emails = ["test123@gmail.com", "abc@xyz", "user@domain.com", "invalid@.com"]
 
     pattern = r'^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.(com)$'
-    print("\nRun bai_1")
+
     for email in emails:
         if re.match(pattern, email):
             print(f"{email} ➜ Hợp lệ")
         else:
             print(f"{email} ➜ Không hợp lệ")
 
-def bai_2():
-    # 2. Viết regex để tìm tất cả các số điện thoại có định dạng 3-3-4 (ví dụ: 091-234-5678).
+def bai2():
+# 2. Tìm tất cả số điện thoại (gồm đúng 10 số, chia bởi dấu -)
     phone_text = "Liên hệ 091-234-5678 hoặc 123-4567-890 để được tư vấn. Gọi 987-654-3210 ngay!"
-    
-    # Tìm số điện thoại dạng 3-3-4 (tổng 10 số)
-    pattern = r'\b\d{3}-\d{3}-\d{4}\b'
-    result = re.findall(pattern, phone_text)
 
-    print("\nRun bai_2")
-    print("Số điện thoại hợp lệ tìm được:")
-    for phone in result:
-        print(f"{phone}")
+    pattern = r'\b(\d{3}-\d{3}-\d{4}|\d{3}-\d{4}-\d{3})\b'
 
-def bai_3():
-    # 3. Cho chuỗi đầu vào, kiểm tra xem trong chuỗi có ít nhất một chữ số không.
+    phone_numbers = re.findall(pattern, phone_text)
+
+    print("Các số điện thoại tìm được:")
+    for phone in phone_numbers:
+        print(phone)
+
+def bai3():
+# 3. Cho chuỗi đầu vào, kiểm tra xem trong chuỗi có ít nhất một chữ số không.
     digit_text = "Tôi có 2 con mèo và 1 con chó."
 
     pattern = r'\d'
 
-    print("\nRun bai_3")
     if re.search(pattern, digit_text):
         print("Có ít nhất một chữ số trong chuỗi.")
     else:
         print("Không có chữ số nào trong chuỗi.")
 
-def bai_4():
-    # 4. Cho một chuỗi, loại bỏ toàn bộ ký tự không phải chữ cái.
+def bai4():
+# 4. Cho một chuỗi, loại bỏ toàn bộ ký tự không phải chữ cái.
     dirty_text = "Hello! This is test123 #2025."
 
-    cleaned_text = re.sub(r'[^a-zA-Z]', '', dirty_text)
+    pattern = r'[^a-zA-Z]'  
 
-    print("\nRun bai_4")
-    print(f"Chuỗi sau khi loại bỏ ký tự không phải chữ cái: {cleaned_text}")
+    clean_text = re.sub(pattern, '', dirty_text)
+    print(clean_text) 
 
-def bai_5():
-    # 5. Kiểm tra chuỗi mật khẩu có phải là mật khẩu mạnh không.
-    # Tiêu chí: Tối thiểu 8 ký tự, ít nhất 1 chữ hoa, 1 chữ thường, 1 số
+def bai5():
+# 5. Kiểm tra chuỗi mật khẩu có phải là mật khẩu mạnh không.
+# Tiêu chí: Tối thiểu 8 ký tự, ít nhất 1 chữ hoa, 1 chữ thường, 1 số
     passwords = ["Abc12345", "abcdef", "ABC123456", "abcD1"]
 
     pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$'
 
-    print("\nRun bai_5")
     for pwd in passwords:
         if re.match(pattern, pwd):
             print(f"{pwd} ➜ Mật khẩu mạnh")
         else:
-            print(f"{pwd} ➜ Mật khẩu yếu")
+            print(f"{pwd} ➜ Mât khẩu yếu")
 
-def bai_6():
-    # 6. Kiểm tra chuỗi có phải là ngày hợp lệ theo định dạng dd/mm/yyyy không
-    # (không xét tính hợp lệ theo lịch thực tế)
+def bai6():
+# 6. Kiểm tra chuỗi có phải là ngày hợp lệ theo định dạng dd/mm/yyyy không
+# (không xét tính hợp lệ theo lịch thực tế)
     dates = ["18/06/2025", "31/13/2022", "00/12/2020", "5/6/2020"]
 
     pattern = r'^\d{2}/\d{2}/\d{4}$'
 
-    print("\nRun bai_6")
     for date in dates:
         if re.match(pattern, date):
-            print(f"{date} ➜ Đúng định dạng")
+            print(f"{date} ➜ Đúng định dạng dd/mm/yyyy")
         else:
             print(f"{date} ➜ Sai định dạng")
 
-
-def bai_7():
-    # 7. Tìm tất cả các từ viết hoa đứng đầu câu trong đoạn văn.
+def bai7():
+# 7. Tìm tất cả các từ viết hoa đứng đầu câu trong đoạn văn.
     capital_text = "Today is a good day. My name is Hoa. How are you?"
 
-    pattern = r'(?<=[.?!]\s|^)[A-Z][a-z]*'
-    result = re.findall(pattern, capital_text)
+    pattern = r'(?:^|[.!?]\s)([A-Z][a-z]*)'
 
-    print("\nRun bai_7")
-    print("Từ viết hoa đứng đầu câu:")
-    for word in result:
+    matches = re.findall(pattern, capital_text)
+
+    print("Từ viết hoa đầu câu:")
+    for word in matches:
         print(word)
 
-def bai_8():
-    # 8. Từ danh sách URL, trích ra phần tên miền chính (ví dụ: google, facebook).
+def bai8():
+# 8. Từ danh sách URL, trích ra phần tên miền chính (ví dụ: google, facebook).
     urls = ["https://www.google.com", "http://facebook.com", "https://news.yahoo.com"]
 
-    pattern = r'https?://(?:www\.|news\.)?([a-zA-Z0-9-]+)\.com'
+    pattern = r'https?://(?:www\.)?([a-zA-Z0-9-]+)\.'
 
-    print("\nRun bai_8")
     for url in urls:
         match = re.search(pattern, url)
         if match:
-            print(f"{url} ➜ Tên miền chính: {match.group(1)}")
+            print(match.group(1))
 
-def bai_9():
-    # 9. Tìm tất cả từ khóa bắt đầu bằng # trong đoạn văn bản.
+def bai9():
+# 9. Tìm tất cả từ khóa bắt đầu bằng # trong đoạn văn bản.
     hashtag_text = "Tôi yêu #Python và #MachineLearning, bạn có thích #AI không?"
 
     pattern = r'#\w+'
-    hashtags = re.findall(pattern, hashtag_text)
 
-    print("\nRun bai_9")
-    print("Các hashtag tìm được:")
-    for tag in hashtags:
+    matches = re.findall(pattern, hashtag_text)
+
+    print("Các từ tìm được:")
+    for tag in matches:
         print(tag)
 
-def bai_10():
-    # 10. Kiểm tra xem chuỗi có phải là số thực dương (thập phân) không.
-    # Hợp lệ: "3.14", "0.5", "10.0"
-    # Không hợp lệ: ".", "3.", "abc", "-1.2"
+def bai10():
+# 10. Kiểm tra xem chuỗi có phải là số thực dương (thập phân) không.
+# Hợp lệ: "3.14", "0.5", "10.0"
+# Không hợp lệ: ".", "3.", "abc", "-1.2"
     nums = ["3.14", "0.5", "10.0", ".", "3.", "abc", "-1.2"]
 
-    pattern = r'^\d+\.\d+$'
+    pattern = r'^[0-9]+\.[0-9]+$'
 
-    print("\nRun bai_10")
     for num in nums:
         if re.match(pattern, num):
             print(f"{num} ➜ Hợp lệ")
         else:
             print(f"{num} ➜ Không hợp lệ")
 
-
-def bai_11():
-    # 11. Tìm và in ra tất cả các email trong chuỗi văn bản.
+def bai11():
+# 11. Tìm và in ra tất cả các email trong chuỗi văn bản.
     email_text = "Liên hệ qua email: support@example.com, admin@domain.org hoặc hello.world123@gmail.com."
 
     pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-    emails = re.findall(pattern, email_text)
 
-    print("\nRun bai_11")
+    matches = re.findall(pattern, email_text)
+
     print("Các email tìm được:")
-    for email in emails:
+    for email in matches:
         print(email)
 
-def bai_12():
-    # 12. Tìm các số nguyên hoặc thập phân dương/âm trong chuỗi.
+def bai12():
+# 12. Tìm các số nguyên hoặc thập phân dương/âm trong chuỗi.
     number_text = "Nhiệt độ hôm nay là -10.5 độ, hôm qua là 25 và ngày mai có thể là -3."
 
-    pattern = r'-?\d+(\.\d+)?'
-    numbers = re.findall(pattern, number_text)
-    
-    # Vì re.findall với nhóm sẽ chỉ trả về phần trong dấu (), nên dùng re.finditer thay thế
-    print("\nRun bai_12")
-    print("Các số tìm được:")
-    for match in re.finditer(pattern, number_text):
-        print(match.group())
+    pattern = r'-?\d+(?:\.\d+)?'  # Dùng (?:...) thay vì (...) để không tách nhóm
 
-def bai_13():
-    # 13. Tìm tất cả các từ dài hơn 6 ký tự trong câu.
+    matches = re.findall(pattern, number_text)
+
+    print("Các số tìm được:")
+    for num in matches:
+        print(num)
+
+def bai13():
+# 13. Tìm tất cả các từ dài hơn 6 ký tự trong câu.
     long_word_text = "Programming in Python is sometimes enjoyable and sometimes frustrating."
 
     pattern = r'\b\w{7,}\b'
-    long_words = re.findall(pattern, long_word_text)
 
-    print("\nRun bai_13")
+    matches = re.findall(pattern, long_word_text)
+
     print("Các từ dài hơn 6 ký tự:")
-    for word in long_words:
-        print(word) 
+    for word in matches:
+        print(word)
 
-def bai_14():
-    # 14. Mã bư`u điện VN gồm 5 chữ số. Kiểm tra chuỗi có phải mã hợp lệ không.
+def bai14():
+# 14. Mã bưu điện VN gồm 5 chữ số. Kiểm tra chuỗi có phải mã hợp lệ không.
     postal_codes = ["70000", "123456", "ABCDE", "00000", "7500"]
 
     pattern = r'^\d{5}$'
 
-    print("\nRun bai_14")
+    print("Kết quả kiểm tra mã bưu điện:")
     for code in postal_codes:
         if re.match(pattern, code):
-            print(f"{code} ➜ Mã hợp lệ")
+            print(f"{code} ➜ Hợp lệ")
         else:
-            print(f"{code} ➜ Mã không hợp lệ")
+            print(f"{code} ➜ Không hợp lệ")
 
-def bai_15():
-    # 15. Trích xuất tất cả từ viết hoa toàn bộ (ví dụ như tên viết tắt, hoặc từ nhấn mạnh).
+def bai15():
+# 15. Trích xuất tất cả từ viết hoa toàn bộ (ví dụ như tên viết tắt, hoặc từ nhấn mạnh).
     uppercase_text = "Chúng tôi làm việc với NASA, WHO và các tổ chức như UNICEF, nhưng không phải USAID."
 
     pattern = r'\b[A-Z]{2,}\b'
-    result = re.findall(pattern, uppercase_text)
 
-    print("\nRun bai_15")
-    print("Các từ viết hoa toàn bộ:")
-    for word in result:
+    matches = re.findall(pattern, uppercase_text)
+
+    print("Từ viết hoa toàn bộ tìm được:")
+    for word in matches:
         print(word)
 
+def menu():
+    while True:
+        choice = input("\nNhập số bài muốn chạy (1-15), 'all' để chạy tất cả, hoặc 0 để thoát: ")
 
+        if choice == "0":
+            print("Kết thúc chương trình.")
+            break
+        elif choice == "all":
+            for i in range(1, 16):
+                globals()[f"bai{i}"]()  # Gọi hàm theo tên: bai1(), bai2(), ...
+        elif choice.isdigit() and 1 <= int(choice) <= 15:
+            globals()[f"bai{int(choice)}"]()
+        else:
+            print("Lựa chọn không hợp lệ. Vui lòng nhập số từ 1 đến 15, 'all' hoặc 0 để thoát.")
+
+menu()
