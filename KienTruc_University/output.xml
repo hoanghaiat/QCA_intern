@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.3 on win32)" generated="2025-08-11T14:39:19.144632" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="D:\Git\QCA_intern\KienTruc_University\test.robot">
+<test id="s1-t1" name="Login" line="8">
+<kw name="Login To System" owner="resource">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-11T14:39:19.540075" level="INFO">Opening browser 'chrome' to base url 'https://demo-clo.minds.vn/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-11T14:39:19.540075" elapsed="6.680203"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${USERNAME_INPUT}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-11T14:39:26.220278" elapsed="0.058544"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-11T14:39:26.278822" level="INFO">Typing text 'lecturer1' into text field 'xpath=//input[@id='id_username']'.</msg>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-11T14:39:26.278822" elapsed="0.123291"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-11T14:39:26.403232" level="INFO">Typing text 'demolecturer' into text field 'xpath=//input[@id='id_password']'.</msg>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-11T14:39:26.402113" elapsed="0.076053"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-11T14:39:26.479162" level="INFO">Clicking button 'xpath=//button[text()='Đăng nhập']'.</msg>
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-11T14:39:26.479162" elapsed="0.100740"/>
+</kw>
+<kw name="Location Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-11T14:39:26.583891" level="INFO">Current location contains 'https://demo-clo.minds.vn/'.</msg>
+<arg>https://demo-clo.minds.vn/</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<status status="PASS" start="2025-08-11T14:39:26.579902" elapsed="0.003989"/>
+</kw>
+<arg>lecturer1</arg>
+<arg>demolecturer</arg>
+<status status="PASS" start="2025-08-11T14:39:19.538838" elapsed="7.045053"/>
+</kw>
+<status status="PASS" start="2025-08-11T14:39:19.537759" elapsed="7.046132"/>
+</test>
+<test id="s1-t2" name="TC_003_ThaoTacNhanh" line="10">
+<kw name="Go To Course Management" owner="resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_coursemanagement}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-11T14:39:26.586382" elapsed="5.093903"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BTN_coursemanagement}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-11T14:39:31.680285" elapsed="0.305878"/>
+</kw>
+<kw name="Wait Until Element Is Clickable" owner="resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_coursemanagement}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-11T14:39:31.987159" elapsed="0.013275"/>
+</kw>
+<arg>${BTN_coursemanagement}</arg>
+<arg>30s</arg>
+<status status="PASS" start="2025-08-11T14:39:31.987159" elapsed="0.013275"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>xpath=//a[@class='CachePanel']</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2025-08-11T14:39:32.001929" elapsed="0.028531"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-11T14:39:32.030460" level="INFO">Clicking element '//a[contains(@class,'btn-success') and @href='/en/academics/courses/']'.</msg>
+<arg>${BTN_coursemanagement}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-11T14:39:32.030460" elapsed="1.037611"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Menu_HP}</arg>
+<arg>50s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-11T14:39:33.068071" elapsed="0.045112"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-11T14:39:33.145133" level="INFO">Element '//a[@href='/en/academics/courses/']' contains text 'Học phần'.</msg>
+<arg>${Menu_HP}</arg>
+<arg>Học phần</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-08-11T14:39:33.113183" elapsed="0.031950"/>
+</kw>
+<doc>Mở mục Thao tác nhanh và click vào Quản lý học phần</doc>
+<status status="PASS" start="2025-08-11T14:39:26.586382" elapsed="6.558751"/>
+</kw>
+<kw name="Go To Home Page" owner="resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_HOME}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-11T14:39:33.146377" elapsed="0.015078"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${BTN_HOME}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-08-11T14:39:33.161455" elapsed="0.289748"/>
+</kw>
+<kw name="Wait Until Element Is Clickable" owner="resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_coursemanagement}</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-11T14:39:33.452290" elapsed="0.012015"/>
+</kw>
+<arg>${BTN_HOME}</arg>
+<arg>30s</arg>
+<status status="PASS" start="2025-08-11T14:39:33.452290" elapsed="0.012015"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-11T14:39:33.465349" level="INFO">Clicking element '//nav[@aria-label='breadcrumb']//a[@href='/en/' and normalize-space()='Trang chủ']'.</msg>
+<arg>${BTN_HOME}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-11T14:39:33.464305" elapsed="0.939575"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Menu_HOME}</arg>
+<arg>50s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-11T14:39:34.404881" elapsed="0.036671"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2025-08-11T14:39:34.456398" level="INFO">Element '//a[@href='/en/' and contains(@class,'menu-item')]' contains text 'Trang chủ'.</msg>
+<arg>${Menu_HOME}</arg>
+<arg>Trang chủ</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2025-08-11T14:39:34.441552" elapsed="0.014846"/>
+</kw>
+<doc>Click vào nút Trang chủ để quay lại trang chủ</doc>
+<status status="PASS" start="2025-08-11T14:39:33.145133" elapsed="1.312266"/>
+</kw>
+<kw name="Go To Course Test" owner="resource">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_TEST}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-08-11T14:39:34.460851" elapsed="0.022669"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2025-08-11T14:39:34.484517" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView({block: "center"});//a[contains(@class,'btn-warning') and @href='/en/assessment/tests/']
+Without any arguments.</msg>
+<msg time="2025-08-11T14:39:34.683733" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-11T14:39:34.683733" level="FAIL">JavascriptException: Message: javascript error: Cannot read properties of undefined (reading 'scrollIntoView')
+  (Session info: chrome=138.0.7204.184)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff74d7ae415+77285]
+	GetHandleVerifier [0x0x7ff74d7ae470+77376]
+	(No symbol) [0x0x7ff74d579a6a]
+	(No symbol) [0x0x7ff74d581419]
+	(No symbol) [0x0x7ff74d584811]
+	(No symbol) [0x0x7ff74d621c0b]
+	(No symbol) [0x0x7ff74d5f860a]
+	(No symbol) [0x0x7ff74d62087f]
+	(No symbol) [0x0x7ff74d5f83e3]
+	(No symbol) [0x0x7ff74d5c1521]
+	(No symbol) [0x0x7ff74d5c22b3]
+	GetHandleVerifier [0x0x7ff74da91efd+3107021]
+	GetHandleVerifier [0x0x7ff74da8c29d+3083373]
+	GetHandleVerifier [0x0x7ff74daabedd+3213485]
+	GetHandleVerifier [0x0x7ff74d7c884e+184862]
+	GetHandleVerifier [0x0x7ff74d7d055f+216879]
+	GetHandleVerifier [0x0x7ff74d7b7084+113236]
+	GetHandleVerifier [0x0x7ff74d7b7239+113673]
+	GetHandleVerifier [0x0x7ff74d79e298+11368]
+	BaseThreadInitThunk [0x0x7ffb60abe8d7+23]
+	RtlUserThreadStart [0x0x7ffb6243c34c+44]
+</msg>
+<arg>arguments[0].scrollIntoView({block: "center"});</arg>
+<arg>${BTN_TEST}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="FAIL" start="2025-08-11T14:39:34.483520" elapsed="0.203686">JavascriptException: Message: javascript error: Cannot read properties of undefined (reading 'scrollIntoView')
+  (Session info: chrome=138.0.7204.184)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff74d7ae415+77285]
+	GetHandleVerifier [0x0x7ff74d7ae470+77376]
+	(No symbol) [0x0x7ff74d579a6a]
+	(No symbol) [0x0x7ff74d581419]
+	(No symbol) [0x0x7ff74d584811]
+	(No symbol) [0x0x7ff74d621c0b]
+	(No symbol) [0x0x7ff74d5f860a]
+	(No symbol) [0x0x7ff74d62087f]
+	(No symbol) [0x0x7ff74d5f83e3]
+	(No symbol) [0x0x7ff74d5c1521]
+	(No symbol) [0x0x7ff74d5c22b3]
+	GetHandleVerifier [0x0x7ff74da91efd+3107021]
+	GetHandleVerifier [0x0x7ff74da8c29d+3083373]
+	GetHandleVerifier [0x0x7ff74daabedd+3213485]
+	GetHandleVerifier [0x0x7ff74d7c884e+184862]
+	GetHandleVerifier [0x0x7ff74d7d055f+216879]
+	GetHandleVerifier [0x0x7ff74d7b7084+113236]
+	GetHandleVerifier [0x0x7ff74d7b7239+113673]
+	GetHandleVerifier [0x0x7ff74d79e298+11368]
+	BaseThreadInitThunk [0x0x7ffb60abe8d7+23]
+	RtlUserThreadStart [0x0x7ffb6243c34c+44]
+</status>
+</kw>
+<kw name="Wait Until Element Is Clickable" owner="resource">
+<arg>${BTN_TEST}</arg>
+<arg>30s</arg>
+<status status="NOT RUN" start="2025-08-11T14:39:34.687206" elapsed="0.000930"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>${BTN_TEST}</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" start="2025-08-11T14:39:34.688136" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Menu_BKT}</arg>
+<arg>50s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-08-11T14:39:34.688136" elapsed="0.000000"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>${Menu_BKT}</arg>
+<arg>Bài kiểm tra</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2025-08-11T14:39:34.688136" elapsed="0.000000"/>
+</kw>
+<doc>Mở mục Thao tác nhanh và click vào Quản lý bài kiểm tra</doc>
+<status status="FAIL" start="2025-08-11T14:39:34.459390" elapsed="0.228746">JavascriptException: Message: javascript error: Cannot read properties of undefined (reading 'scrollIntoView')
+  (Session info: chrome=138.0.7204.184)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff74d7ae415+77285]
+	GetHandleVerifier [0x0x7ff74d7ae470+77376]
+	(No symbol) [0x0x7ff74d579a6a]
+	(No symbol) [0x0x7ff74d581419]
+	(No symbol) [0x0x7ff74d584811]
+	(No symbol) [0x0x7ff74d621c0b]
+	(No symbol) [0x0x7ff74d5f860a]
+	(No symbol) [0x0x7ff74d62087f]
+	(No symbol) [0x0x7ff74d5f83e3]
+	(No symbol) [0x0x7ff74d5c1521]
+	(No symbol) [0x0x7ff74d5c22b3]
+	GetHandleVerifier [0x0x7ff74da91efd+3107021]
+	GetHandleVerifier [0x0x7ff74da8c29d+3083373]
+	GetHandleVerifier [0x0x7ff74daabedd+3213485]
+	GetHandleVerifier [0x0x7ff74d7c884e+184862]
+	GetHandleVerifier [0x0x7ff74d7d055f+216879]
+	GetHandleVerifier [0x0x7ff74d7b7084+113236]
+	GetHandleVerifier [0x0x7ff74d7b7239+113673]
+	GetHandleVerifier [0x0x7ff74d79e298+11368]
+	BaseThreadInitThunk [0x0x7ffb60abe8d7+23]
+	RtlUserThreadStart [0x0x7ffb6243c34c+44]
+</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-08-11T14:39:34.690139" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-11T14:39:34.691135" elapsed="2.677867"/>
+</kw>
+<doc>Đăng nhập và truy cập trang học phần từ Thao tác nhanh</doc>
+<status status="FAIL" start="2025-08-11T14:39:26.585382" elapsed="10.784441">JavascriptException: Message: javascript error: Cannot read properties of undefined (reading 'scrollIntoView')
+  (Session info: chrome=138.0.7204.184)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff74d7ae415+77285]
+	GetHandleVerifier [0x0x7ff74d7ae470+77376]
+	(No symbol) [0x0x7ff74d579a6a]
+	(No symbol) [0x0x7ff74d581419]
+	(No symbol) [0x0x7ff74d584811]
+	(No symbol) [0x0x7ff74d621c0b]
+	(No symbol) [0x0x7ff74d5f860a]
+	(No symbol) [0x0x7ff74d62087f]
+	(No symbol) [0x0x7ff74d5f83e3]
+	(No symbol) [0x0x7ff74d5c1521]
+	(No symbol) [0x0x7ff74d5c22b3]
+	GetHandleVerifier [0x0x7ff74da91efd+3107021]
+	GetHandleVerifier [0x0x7ff74da8c29d+3083373]
+	GetHandleVerifier [0x0x7ff74daabedd+3213485]
+	GetHandleVerifier [0x0x7ff74d7c884e+184862]
+	GetHandleVerifier [0x0x7ff74d7d055f+216879]
+	GetHandleVerifier [0x0x7ff74d7b7084+113236]
+	GetHandleVerifier [0x0x7ff74d7b7239+113673]
+	GetHandleVerifier [0x0x7ff74d79e298+11368]
+	BaseThreadInitThunk [0x0x7ffb60abe8d7+23]
+	RtlUserThreadStart [0x0x7ffb6243c34c+44]
+</status>
+</test>
+<status status="FAIL" start="2025-08-11T14:39:19.147358" elapsed="18.224534"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test" id="s1" pass="1" fail="1" skip="0">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
